@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 栈(后进先出)，push()，pop()方法
+        var arr = ["白玛旺久",'西藏大学','布达拉宫','你好啊'];
+        console.log("原先数组长度:"+arr.length);
+         // push()方法往数组的最后一项添加内容
+         var newlength = arr.push("BaimaWangjiu");
+         console.log(arr)
+         console.log("新数组长度:"+newlength);
+        //posh() 从数组末尾删除最后一项
+        var lastItem = arr.pop();
+        console.log(lastItem);
+        console.log(arr);
+
+        // 队列 fifo先进先出 shift() unshift()
+        newlength=arr.unshift("Yellow");
+        console.log(newlength);
+        console.log(arr);
+        var firstItem = arr.shift();
+        console.log(firstItem);
+        console.log(arr);
+    </script>
+</body>
+</html>

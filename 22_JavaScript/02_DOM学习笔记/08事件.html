@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+</head>
+<style>
+    #box{
+        width: 100px;
+        height: 50px;
+        background-color: #f00;
+        color: #000000;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <!-- onclick事件 -->
+    <button id="box" >点击我</button>
+    <script>
+        var box = document.getElementById("box");
+        //1.鼠标点击事件
+        /*
+        box.onclick = function(){
+            // alert("你点击了按钮");
+            box.style.backgroundColor = "#0f0";
+            box.style.color = "#ffffff";
+            box.innerHTML = "你好，世界！";
+        }
+           
+        function add(){
+            alert("你点击了按钮");
+            box.style.backgroundColor = "#0f0";
+            box.style.color = "#ffffff";
+        }
+        */
+        var isBlue = true;
+        function changeColor(){
+            if(isBlue){
+                this.style.backgroundColor = "#0f0";
+                this.style.color = "#ffffff";
+                // alert("你点击了按钮");
+                isBlue = false;
+            }else{
+                this.style.backgroundColor = "#f00";
+                this.style.color = "#000000";
+                isBlue = true;
+            }
+        }
+        box.onclick = changeColor;
+        
+        //2.鼠标滑过事件
+        box.onmouseover = function(){//鼠标滑过
+            this.style.backgroundColor = "#00f";
+            this.style.color = "#ffffff";
+        }
+        box.onmouseout = function(){//鼠标移开
+            this.style.backgroundColor = "#f00";
+            this.style.color = "#000000";
+        }
+    </script>
+</body>
+</html>

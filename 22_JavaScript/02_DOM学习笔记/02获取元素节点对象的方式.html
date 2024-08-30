@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素节点对象的方式</title>
+</head>
+<style>
+    #box{
+        color: brown;
+        font-size: 26px;
+    }
+</style>
+<body>
+    <h2>你要购买什么课程？</h2>
+    <p title="请你选择购买的课程">本课程是web全栈课程，期待你的购买</p>
+    <ul id="classlist">
+        <li class="item">Java课程</li>
+        <li class="item">Python课程</li>
+        <li class="item">JavaScript课程</li>
+        <li class="item">DOM</li>
+    </ul>
+
+    <!-- 节点类型
+        1.元素节点
+        2.属性节点
+        3.文本节点
+    -->
+    <script>
+       function getElements(){
+         //1. document.getElementById() 单个对象，获取元素节点
+            var eleNode = document.getElementById("classlist");
+            console.log(eleNode); 
+            console.log(typeof eleNode); //object
+            //2. document.getElementsByTagName() 集合对象，获取元素节点集合
+            var oList = document.getElementsByTagName("li");
+            console.log(oList.length); //4
+            console.log(typeof oList); //object
+            for(var i=0;i<oList.length;i++){
+                console.log(oList[i]); //每一个li节点对象
+            }
+            var oList2 = document.getElementsByTagName("h2");
+            console.log(oList2.length); //1
+            console.log(typeof oList2); //object
+            console.log(oList2[0]); //h2节点对象
+            //3. document.getElementsByClassName() 集合对象，获取元素节点集合
+            var oList3 = document.getElementsByClassName("item");
+            console.log(oList3.length); //4
+            console.log(typeof oList3); //object
+            for(var i=0;i<oList3.length;i++){
+                console.log(oList3[i]); //每一个li节点对象
+            }
+       }
+      
+        //1. document.getAttribute() 获取属性
+        var titles = document.getElementsByTagName("p")[0];
+        console.log(titles.getAttribute("title")); //请你选择购买的课程
+        // //2. document.setAttribute() 设置属性
+        titles.setAttribute("id","box");//给p元素添加id属性
+        console.log(titles.getAttribute("title")); 
+       
+      
+
+    </script>
+</body>
+</html>

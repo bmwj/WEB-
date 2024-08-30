@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>033练习</title>
+</head>
+<body>
+    <script>
+        //获取min到max之间的整数
+        function rounddown( min, max) {
+            //Math.floor()向下取整
+            //Math.random()生成0-1之间的随机数
+            //(max - min) + min 得到一个区间，然后加上min，得到一个最小值
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+      // console.log(rounddown(1,100));
+    
+      //获取随机颜色 rgb(0~255,0~255,0~255)
+      function randomColor() {
+        //rounddown()函数生成0-255之间的随机整数
+        var r = rounddown(0,256);
+        var g = rounddown(0,256);
+        var b = rounddown(0,256);
+        //rgb(r,g,b)
+        var colors = "rgb" + "(" + r + "," + g + "," + b + ")";
+        //设置body的背景颜色
+        document.body.style.backgroundColor = colors;
+        //返回颜色
+        return colors;
+      }
+    //   console.log(randomColor());
+
+
+    // 随机验证码 四位数字 数字+大写字母
+      function randomCode() {
+        //设置默认的空的字符串
+        var code = "";
+        //设置验证码的长度
+        var length = 6;
+        //设置验证码的数组
+        var arr = ["0","1","2","3","4","5","6","7","8","9",
+                    "A","B","C","D","E","F","G","H","I","J",
+                    "K","L","M","N","O","P","Q","R","S","T",
+                    "U","V","W","X","Y","Z"];
+        //循环生成验证码
+        for(var i =0;i<length;i++){
+            //随机获取一个数组的索引
+            var index = rounddown(0,36);
+            //根据索引获取数组的元素
+            var char = arr[index];
+            //将元素添加到验证码字符串中
+            code = code + char;
+        }
+        return code;
+      }
+      console.log(randomCode());
+      //在页面上显示验证码
+      document.write("<h1>验证码：" + randomCode() + "</h1>");
+    </script>
+</body>
+</html>

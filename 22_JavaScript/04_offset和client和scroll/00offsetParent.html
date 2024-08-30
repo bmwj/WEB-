@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00定位父级</title>
+</head>
+<body>
+    <!-- 
+    offset demension: top, right, bottom, left 偏移量
+    1：父级定位 offsetParent
+    2：父级定位的偏移量 offsetTop, offsetLeft
+    3：offsetWidth,offsetHeight 父级的宽高
+
+    
+    -->
+    <div id="father">
+        <div id="son">son</div>
+    </div>
+    <script>
+        //元素自身有fixed属性，则offsetParent为null
+        var father = document.getElementById("father");
+        var son = document.getElementById("son");        
+        console.log(father.offsetParent); //null
+        console.log(son.offsetTop); //0
+        //元素自身没有fixed属性，则offsetParent为父级元素body
+
+        //元素自身无定位，父级元素存在定位，offsetParent是以最近的定位父级元素为准
+    </script>
+</body>
+</html>

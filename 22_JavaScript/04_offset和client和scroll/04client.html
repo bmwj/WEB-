@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client</title>
+</head>
+<body>
+    <div style="width: 200px; height: 200px;border: 1px solid black; background-color: red; ;"></div>
+    <script>
+        //client 客户端大小：指的是元素内容到内边距占据的空间大小
+        //不包含border
+        //1. clientWidth = width + padding-left + padding-right
+        //2. clientHeight = height + padding-top + padding-bottom
+        //3. clientTop = 上边框到顶部的距离
+        //4. clientLeft = 左边框到左侧的距离
+        //5. clientRight = 右边框到右侧的距离
+        //6. clientBottom = 下边框到底部的距离
+        var div = document.querySelector('div');
+        console.log(div.clientWidth); // 200
+        console.log(div.clientHeight); // 200
+        console.log(div.clientTop); // 1
+        console.log(div.clientLeft); // 1
+        //获取页面大小
+        console.log(document.documentElement.clientWidth); // 屏幕大小
+        console.log(document.documentElement.clientHeight); // 屏幕高度
+
+        //注意
+        // 1.所有client属性都是只读的
+        // 静态失败
+        // div.clientHeight = 300; // 无效
+
+
+        //2.如果元素的display属性设置为none，则客户端client属性的值为0
+
+        //3. 尽量避免重复访问这些属性，因为每次访问都会重新计算，影响性能
+        console.time('time');
+        var b = div.clientHeight;
+        for(var i=0;i<1000000;i++){
+            var a= b;
+        }
+        console.timeEnd('time'); // 1.27099609375ms
+    </script>
+</body>
+
+</html>

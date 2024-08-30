@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout()/setInterval()</title>
+</head>
+<body>
+    <script>
+        // 延迟性的操作 setTimeout()
+        // window.setTimeout(function(){
+        //     console.log("Hello, 白玛旺久!");
+        // }, 2000);
+        // console.log("西藏大学");
+       // 定时性的操作 setInterval()
+       
+        var i = 0;
+        var timer = null;
+        // 定时器的执行次数为3, 每隔1秒执行一次
+        timer = setInterval(function(){
+            i++;
+            //判断执行次数是否达到3，达到则清除定时器
+            if(i>3){
+                clearInterval(timer);
+                return;
+            }
+            console.log("第" + i + "次执行");
+        }, 1000);
+    </script>
+</body>
+</html>

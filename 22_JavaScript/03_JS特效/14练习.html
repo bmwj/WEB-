@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* transform: translate(100px, 100px) rotate(45deg) scale(0.5) skew(30deg, 10deg); */
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">形变效果</button>
+    <div id="box"></div>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            var box = document.getElementById("box");
+            var index = 0;
+            btn.onclick = function() {
+                console.log(index);
+                index++;
+                box.style.transform = "translate(" + (index * 10) + "px, " + (index * 10) + "px)" + " rotate(" + (index * 45) + "deg)" + " scale(" + (0.5 + (index * 0.1)) + ")" + " skew(" + (30 + (index * 10)) + "deg, " + (10 + (index * 5)) + "deg)";
+            }
+
+         }
+    </script>
+
+</body>
+</html>

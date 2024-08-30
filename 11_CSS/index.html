@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: aqua;
+    }
+    /* 后代选择器，选中所有后代 */
+    div span{
+      color: cadetblue;
+      font-size: 20px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    /* 选中某元素的子代元素（最近的子集） */
+    div>p>span{
+      color: black;
+      font-size: 30px;
+    }
+    /* 并集选择器，相同的样式选择 */
+    h1,h2,h3{
+      color: blue;
+      font-size: 30px;
+      line-height: 20px;
+    }
+    /* 交集选择器，选中同时满足多个条件的元素 */
+    p.box{
+      color: orangered;
+      font-size: 30px;
+      line-height: 20px;
+    }
+    div.box{
+      color: rgb(9, 40, 247);
+      font-size: 30px;
+      line-height: 20px;
+    }
+    /* 伪类选择器，表示元素的状态，某个状态设置样式 */
+    /* 选择器：hover{css属性} */
+    h1:hover{
+      color: rebeccapurple;
+      font-size: 20px;
+    }
+    a:hover{
+      color: rgb(233, 5, 5);
+    }
+    a:link{
+      color: black;
+    }
+    a:visited{
+      color: blue;
+    }
+    a:active{
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <span>这是一个span标签</span>
+  <div>
+    <span>这是div的儿子span</span>
+    <p>
+      <span>孙子span</span>
+    </p>
+  </div>
+  <a href="#">西藏大学白玛旺久西藏大学白玛旺久</a>
+  <h1>白玛旺久</h1>
+  <h2>西藏大学</h2>
+  <h3>四川大学</h3>
+  <p class="box"> p标签，使用了类选择器box</p>
+   <p> p标签</p>
+   <div class="box"> div标签，使用了类选择器</div>
+
+<!-- 伪类-超链接 ---》一共有四个状态
+ 选择器     作用
+ :link      访问前
+ :visited   访问后
+ :hover     鼠标悬停
+ :active    点击时(激活)
+提示：如果给链接设置以上四个状态，需要按照LVHA的顺序书写。 
+-->
+
+
+
+
+
+  </body>
+</html>

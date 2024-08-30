@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History对象学习笔记</title>
+</head>
+<body>
+    <script>
+        // 1.history.length:返回历史记录的数量
+        console.log(history.length);
+
+        // 2.history.go(n):前进或后退历史记录的数量，n为正整数表示前进，负整数表示后退，0表示刷新当前页面
+        history.go(-1);
+
+        // 3.history.back():后退到上一个页面
+        history.back();
+
+        // 4.history.forward():前进到下一个页面
+        history.forward();
+
+        
+    </script>
+</body>
+</html>

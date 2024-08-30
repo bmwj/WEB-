@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式设置</title>
+</head>
+<style>
+    .box{
+        background-color: black;
+        color: white;
+        width: 250px;
+        height: 250px;
+        text-align: center;
+        border-radius: 10px;
+        border: 2px solid white;
+        line-height: 250px;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: Arial;
+    }
+</style>
+<body>
+    <div id="odiv">BaiMawangJiu</div>
+    <p >This is a paragraph with a class of "box"</p>
+    <script>
+
+       /*
+        var odiv = document.getElementById("odiv");
+        // 直接操作样式属性
+        console.log(odiv.style);
+        odiv.style.color = "White";
+        odiv.style.backgroundColor = "black";
+        odiv.style.width = "250px";
+        odiv.style.height = "250px";
+        odiv.style.textAlign="center";
+        odiv.style.borderRadius="10px";
+        odiv.style.border="2px solid white";
+        odiv.style.lineHeight="250px";
+        odiv.style.fontSize="30px";
+        odiv.style.fontWeight="bold";
+        odiv.style.fontFamily="Arial";
+         */
+    //通用控制属性类名来控制样式
+     var odiv = document.getElementById("odiv");  
+     var s = odiv.nextSibling.nextSibling;//获取下一个元素
+     if(s.nodeName=="P"){
+         s.setAttribute("class","box");
+     }
+     odiv.setAttribute("class","box");
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #clock{
+            width: 300px;
+            height: 300px;
+            /* border-radius: 80%; */
+            background:url("衣服相册/hh.jpeg") no-repeat center;
+            position: relative;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <div id="hour">时针</div>
+        <div id="minute">分针</div>
+        <div id="secend">秒针</div>
+    </div>
+    <script>
+        //获取标签
+        var hour = document.getElementById("hour");
+        var minute = document.getElementById("minute");
+        var secend = document.getElementById("secend");
+        //开启定时器，获取当前时间
+        setInterval(function(){
+            //获取当前时间
+            var now = new Date();
+            //获取当前时间的各个数字，并转换为数字
+            var secendNum = now.getSeconds();
+            var minuteNum = now.getMinutes()+secendNum/60;
+            var hourNum = now.getHours()%12+minuteNum/60;
+            //将小时、分钟、秒数转换为角度
+            hour.style.transform = "rotate("+(hourNum*30-90)+"deg)";
+            minute.style.transform = "rotate("+(minuteNum*6-90)+"deg)";
+            secend.style.transform = "rotate("+(secendNum*6-90)+"deg)";
+        },1000);
+    </script>
+</body>
+</html>

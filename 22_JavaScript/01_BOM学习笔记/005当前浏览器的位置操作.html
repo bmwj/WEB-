@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>005当前浏览器的位置操作</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+            //2秒后跳转到百度页面
+            window.location.href = "http://www.baidu.com";
+            window.location.replace("http://www.sina.com.cn"); //替换当前页面   
+            window.location.reload(); //重新加载当前页面
+        },2000);
+    </script>
+</body>
+</html>

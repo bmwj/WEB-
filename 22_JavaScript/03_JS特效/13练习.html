@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <button class="start">开启</button>
+    <button class="close">关闭</button>
+    <script>
+        var startBtn = document.getElementsByClassName("start")[0];
+        var closeBtn = document.getElementsByClassName("close")[0];
+        var num = 0, interval = null;
+        startBtn.onclick = function(){
+            //使用定时器的时候，县清楚定时器 再开启定时器 防止用户频繁性的开启定时器
+            clearInterval(interval);
+            interval = setInterval(function(){
+                num++;
+                console.log(num);
+            }, 1000);
+        }
+        closeBtn.onclick = function(){
+            clearInterval(interval);
+        }
+    </script>
+</body>
+</html>

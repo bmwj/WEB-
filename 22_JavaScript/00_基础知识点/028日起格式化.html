@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日起格式化</title>
+</head>
+<body>
+    <script>
+        // 12:34:56 P.M.
+       
+        // 2021年12月31日 12:34:56 P.M.
+        var dates = function(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month =date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            var period = hour >= 12? "P.M." : "A.M.";
+            hour =hour>=12?hour-12:hour;
+            if(hour == 0){
+                hour = 12;
+            }
+            minute = minute < 10 ? ":0" + minute : ":" + minute;
+            second = second < 10 ? ":0" + second : ":" + second;
+            console.log(year + "年" + month + "月" + day + "日" +" " +hour + "时" + minute + "分" + second+ "秒 " +" "+ period);
+        }
+        // dates();
+        var dataT = function(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month =date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            var period = hour >= 12? "P.M." : "A.M.";
+            var temp = " "+(hour>12?hour-12:hour)
+            if(hour == 0){
+                temp = "12";
+            }
+            temp = temp+""+(minute<10?":0":":"+minute);
+            temp = temp+""+(second<10?":0":":"+second);
+            temp = temp+" "+period;
+            temp = year + "年" + month + "月" + day + temp;
+            console.log(temp)
+
+        }
+        dataT();
+    </script>
+</body>
+</html>

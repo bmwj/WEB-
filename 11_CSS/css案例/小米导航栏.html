@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      list-style-type: none;
+    }
+    input {
+      border: none;
+      outline: none;
+    }
+    .div1{
+      width: 100%;
+      height: 100px;
+      /* background-color: aqua; */
+    }
+    .div2{
+      width: 1226px;
+      /* height: 100px; */
+      margin: 0 auto;
+      /* background-color: green; */
+    }
+    .div1 .div3{
+      float: left;
+      margin-top: 25px;
+    }
+    .div3 a{
+      display: block;
+      width: 56px;
+      height: 56px;
+    }
+    .div3 a>img {
+      width: 56px;
+      height: 56px;
+    }
+    .div1 .div4 {
+      float: left;
+      width: 800px;
+      height: 88px;
+      padding: 12px 0 0 30px;
+    }
+    .clears::after {
+     content: "";
+     clear: both;
+     display: block;
+    }
+    .div4 li{
+      float: left;
+    }
+    .div4 li>a{
+      display: block;
+      color: #333;
+      padding: 28px 10px 38px;
+    }
+    .div5{
+      float:right;
+      width: 296px;
+      margin-top: 25px;
+    }
+    .div5 .actions {
+      height: 50px;
+      width: 296px;
+    }
+    .div5 .actions #contents{
+     width: 223px;
+     height: 48px;
+     border: 1px solid #e0e0e0;
+     padding: 0 10px;
+     float: left;
+    }
+    .div5 .actions #contents:hover{
+      border: 1px solid #eeb005;
+    }
+    .div5 .actions #search{
+      height: 50px;
+      width: 49px;
+      border: 1px solid #e0e0e0;
+      margin-left: -1px;
+      font-size: 40px;
+      color: #e0e0e0;
+    }
+    #search:hover{
+      background-color: #eeb005;
+    }
+    .actions{
+      position: absolute;
+    }
+    .hahaha{
+      position: absolute;
+      top: 14px;
+      right: 70px;
+      font-size: 14px;
+    }
+    .hahaha span{
+      background-color: #eee;
+      padding: 0 5px;
+      color: #757575;
+    }
+    .hahaha span:hover{
+      cursor: pointer;
+      background-color: #eeb005;
+    }
+  </style>
+</head>
+<body>
+  <div class="div1">
+    <div class="div2 clears">
+      <div class="div3">
+        <a href="">
+          <img src="../image/logo-mi2.png" alt="小米官网" title="小米logo">
+        </a>
+      </div>
+      <ul class="div4">
+          <li><a href="">全部商品分类</a></li>
+          <li><a href="">Xiaomi手机</a></li>
+          <li><a href="">Redmi手机</a></li>
+          <li><a href="">电视</a></li>
+          <li><a href="">笔记本</a></li>
+          <li><a href="">平板</a></li>
+          <li><a href="">家电</a></li>
+          <li><a href="">路由器</a></li>
+          <li><a href="">服务中心</a></li>
+          <li><a href="">社区</a></li>
+        </ul>
+      <div class="div5">
+        <form class="actions">
+          <input type="text" id="contents">
+          <input type="submit" value="@" id="search">
+          <div class="hahaha">
+            <span>小米9</span>
+            <span>小米9 SE</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 
+  相对定位：
+      不脱离标准的文档流，可以调正元素
+  参考点：
+      以原来的位置作为参考点
+  -->
+  <!-- 
+  绝对定位：
+  脱离标准的文档流，不在页面占位置
+  层级提高，压盖现象
+  参考点：
+  相对于最近的非static祖先元素定位，如果没有非static祖先元素，那么以页面根元素左上角进行定位。
+  “子绝父香”
+参考点：
+  以原来的位置作为参考点 -->
+</body>
+</html>

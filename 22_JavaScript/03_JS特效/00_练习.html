@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效练习</title>
+    <style>
+        #flower{
+            width: 250px;
+            height: 250px;
+        
+        }
+    </style>
+</head>
+<body>
+    <!-- 实现图片的切换效果 -->
+    <img src="./image/001.jpeg" alt="" id="flower">
+    <br>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+
+    <script>
+        //获取事件源对象，标签
+        var flower = document.getElementById("flower");
+        var prevBtn = document.getElementById("prev");
+        var nextBtn = document.getElementById("next");
+
+        var minIndex = 1, maxIndex = 6; //图片的最大索引
+        var currentIndex = minIndex; //当前图片的索引
+        //监听按钮点击事件
+        nextBtn.onclick = function() {//下一张按钮点击事件
+            //判断是否到最后一张
+            if (currentIndex === maxIndex) {
+                //到最后一张
+               currentIndex = minIndex;
+            }else{
+                currentIndex++;//索引加1
+            }
+            //设置图片的src属性
+            flower.setAttribute("src","./image/00"+currentIndex+".jpeg");
+        }
+
+        prevBtn.onclick = function() {//上一张按钮点击事件
+            //判断是否到第一张
+            if (currentIndex === minIndex) {
+                //到最后一张
+               currentIndex = maxIndex;
+            }else{
+                currentIndex--;//索引减1
+            }
+            flower.setAttribute("src","./image/00"+currentIndex+".jpeg");
+        }
+    </script>
+</body>
+</html>

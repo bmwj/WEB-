@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组操作方法</title>
+</head>
+<body>
+    <script>
+        //concat()方法,数组合并
+        var arr1 = [1, 2, 3];
+        var arr2 = ["白玛旺久", 5, "西藏大学"];
+        var arr3 = arr1.concat(arr2);
+        console.log(arr3); //[1, 2, 3, "白玛旺久", 5, "西藏大学"]
+        arr1.concat({name: "小米", age: 18}, [11,22,33]); //数组合并
+        console.log(arr1); //[1, 2, 3, {name: "小米", age: 18}, [11,22,33]]
+        //join()方法,数组元素连接成字符串
+        var arr4 = [1, 2, 3, 4, 5];
+        var str = arr4.join("-");
+        console.log(str); //"1-2-3-4-5"
+
+        //splice()方法,数组元素删除或替换
+        var arr7 = [1, 2, 3, 4, 5];
+        arr7.splice(1, 1, "a", "b");    
+        console.log(arr7); //[1, "a", "b", 3, 4, 5]
+        arr7.splice(2, 2, "c", "d");
+        console.log(arr7); //[1, "a", "c", "d", 4, 5]
+
+        //slice()方法,数组元素切割
+        var arr8 = [1, 2, 3, 4, 5];
+        var arr9 = arr8.slice(1,2);
+        console.log(arr9);
+
+
+    </script>
+</body>
+</html>

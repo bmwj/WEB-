@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str1 = 6;
+        var str2 = '6';
+        // ===等同于和!==
+        var isequal1 = str1===str2; //结果为false（不仅比较数值，还比较数据类型）
+        console.log(isequal1);
+
+        // ==等于和!=不等于
+        var isequal2 = str1 == str2;
+        console.log(isequal2);//结果为true（仅仅比较数值，不比较数据类型）
+    </script>
+</body>
+</html>

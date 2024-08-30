@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+</head>
+<body>
+    <script>
+        //Data日起对象
+        var data = new Date(2023,11,22,12,30,45);//年，月，日，时，分，秒
+        console.log(data);//Fri Dec 22 2023 12:30:45 GMT+0800 (中国标准时间)
+        //常用方法
+        //获取年月日
+        console.log(data.toLocaleDateString());
+        //获取年份
+        console.log(data.getFullYear());
+        //获取月份
+        console.log(data.getMonth());
+        //获取日期
+        console.log(data.getDate());
+        //获取星期
+        console.log(data.getDay());
+        //获取时
+        console.log(data.getHours());
+        //获取分
+        console.log(data.getMinutes());
+        //获取秒
+        console.log(data.getSeconds());
+        //获取毫秒
+        console.log(data.getMilliseconds());
+        //获取日期字符串
+        console.log(data.toString());
+        //获取日期时间戳
+        console.log(data.getTime());
+        //设置日期
+        data.setFullYear(2022);
+        data.setMonth(1);
+        data.setDate(1);
+        data.setHours(0);
+        data.setMinutes(0);
+        data.setSeconds(0);
+        data.setMilliseconds(0);
+        //获取日期对象
+        console.log(data);
+        //日期格式化
+        console.log(data.toLocaleString());
+        //日期格式化2
+        console.log(data.toLocaleDateString("zh-CN"));
+        //日期格式化3
+        console.log(data.toLocaleTimeString());
+        //日期格式化4
+        console.log(data.toLocaleTimeString("zh-CN")); 
+        //日期格式化5
+        console.log(data.toLocaleString("zh-CN",{
+            weekday:"long", 
+            year:"numeric",
+            month:"long",
+            day:"numeric", 
+            hour:"numeric",
+            minute:"numeric",
+            second:"numeric"}));        
+        //日期计算
+        // var date1 = new Date("2021-01-01");
+        // var date2 = new Date("2022-01-01");
+        // var diff = date2.getTime() - date1.getTime();
+        // console.log(diff);//31536000000
+    </script>
+</body>
+</html>

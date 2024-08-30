@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组位置</title>
+</head>
+<body>
+    <script>
+        //位置
+        var arr = ["apple", "banana", "orange", "grape", "pear"];
+        console.log(arr.indexOf('orange')); // 2
+        console.log(arr.lastIndexOf("orange")); // 2
+
+        console.log(arr.lastIndexOf("orange",2)); // 2   从索引2开始向前搜索，找到第一个"orange"的位置
+        console.log(arr.lastIndexOf("orangesss",2)); // -1 如果找不到，返回-1
+    </script>
+</body>
+</html>

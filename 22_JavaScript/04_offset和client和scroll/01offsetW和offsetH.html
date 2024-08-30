@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offsetW和offsetH</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: rebeccapurple;
+            padding-left: 10px;
+            padding-right: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="width: 100px;height: 100px;"></div>
+    <script>
+        var box = document.getElementById("box");
+        console.log(box.offsetWidth); // 231
+        console.log(box.offsetHeight); // 201
+        //只能获取行内属性
+        console.log(box.style.width); // 100px
+        console.log(box.style.height); // 100px
+
+        //因为offsetWidth和offsetHeight是只读属性，所以不能直接修改，只能通过设置style属性来修改宽高
+        //box.offsetWidth=300；
+        box.style.width=300+"px";
+        //box.offsetHeight=300；
+        box.style.height=300+"px";
+    </script>
+</body>
+</html>

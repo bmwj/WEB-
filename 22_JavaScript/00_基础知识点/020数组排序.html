@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组排序</title>
+</head>
+<body>
+    <script>
+        /*
+        sort方法默认情况下会将数组元素转换为字符串，
+        然后按照UTF-16代码单元值序列进行排序。
+        这意味着默认排序可能会对数字排序产生意外的结果。
+        为了正确地对数字进行排序，你需要提供一个比较函数
+        */
+
+        var arr = [11,33,232,4,421,3,55,676,777,87];
+        // 数组倒序
+        console.log(arr.reverse()); //[87, 777, 676, 55, 3, 421, 4, 232, 33, 11]
+        //sort() 升序或者降序
+        console.log(arr.sort()); //[11, 3, 4, 33, 421, 55, 676, 777, 87, 232]
+        console.log(arr.sort(function(a,b){return a-b})); //升序[3, 4, 11, 33, 55, 87, 232, 421, 676, 777] 
+        console.log(arr.sort((a,b)=>(b-a))); //降序[777, 676, 421, 232, 87, 55, 33, 11, 4, 3]
+        
+    </script>
+</body>
+</html>

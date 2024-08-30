@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #panel{
+            background-color: #aaa6a6;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 400px;
+            padding: 20px;
+            margin: 100px auto;
+           
+        }
+        #panel h3{
+            font-size: 24px;
+            text-align: center;
+        }
+        .panel-content{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: 24px;
+        }
+        .panel-footer {
+            text-align: center;
+        }
+        .panel-footer button{
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .panel-footer button:hover{
+            background-color: #f9a844;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 千千音乐盒子特效 -->
+     <div id="panel">
+        <div class="panel-title">
+            <h3>千千音乐盒</h3>
+            <hr>
+        </div>
+        <div class="panel-content">
+            <input type="checkbox">漂洋过海来看你 <br>
+            <input type="checkbox">轻轻一吻就令人心动 <br>
+            <input type="checkbox">你是我心中的天使 <br>
+            <input type="checkbox">一生一世只为你 <br>
+            <input type="checkbox">我愿意用一生去爱你 <br>
+            <input type="checkbox">如果你要离去 <br>
+            <input type="checkbox">请不要说再见 <br>
+            <input type="checkbox">可惜不是你 <br>
+            <input type="checkbox">恋恋风尘 <br>
+        </div>
+        <div class="panel-footer">
+            <hr>
+            <button id="allSelect">全选</button>
+            <button id="cancelSelect">取消选中</button>
+            <button id="reverseSelect">反选</button>
+        </div>
+     </div>
+     
+    <script>
+           //1.获取事件源
+        function idUrl(id){
+            return typeof id === "string"?document.getElementById(id):null;
+        }
+        var inputs = document.getElementsByTagName("input");
+        //2.全选按钮
+        idUrl("allSelect").onclick = function(){
+            for(var i=0;i<inputs.length;i++){
+                inputs[i].checked = true;
+            }
+        }
+        //3.取消选中按钮
+        idUrl("cancelSelect").onclick = function(){
+            for(var i =0;i<inputs.length;i++){
+                inputs[i].checked = false;
+            }
+        }
+        //4.反选按钮
+        idUrl("reverseSelect").onclick = function(){
+            for(var i=0;i<inputs.length;i++){
+                // inputs[i].checked = !inputs[i].checked;
+                if(inputs[i].checked){
+                    inputs[i].checked = false;
+                }else{
+                    inputs[i].checked = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

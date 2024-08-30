@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效</title>
+    <style>
+        #code {
+            width: 100px;
+            height: 5px;
+            background-color: #ddd;
+            padding: 10px;
+            line-height: 5px;
+            text-align: center;
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+            float: left;
+        }
+        input{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="code"></div>
+    <input type="text" name="" id="newCode">
+    <input type="button" name="" id="validateCode" value="验证">
+    <script>
+       window.onload = function(){
+        var code;//保存全局
+        //第一步：获取对应标签元素
+        var codeDiv = document.getElementById("code");
+        var newCode = document.getElementById("newCode");
+        var validateCode = document.getElementById("validateCode");
+        randomCode();
+        //第二步：定义函数，生成指定长度的随机验证码
+        function rounddown(min,max){
+            return Math.floor(Math.random()*(max-min)+min);
+        }
+        //第三步：定义函数，生成随机验证码，并显示到指定的标签中
+        function randomCode() {
+            //设置默认的空的字符串
+            code = "";
+            //设置验证码的长度
+            var length = 6;
+            //设置验证码的数组
+            var arr = ["0","1","2","3","4","5","6","7","8","9",
+                        "A","B","C","D","E","F","G","H","I","J",
+                        "K","L","M","N","O","P","Q","R","S","T",
+                        "U","V","W","X","Y","Z"];
+            //循环生成验证码
+            for(var i =0;i<length;i++){
+                //随机获取一个数组的索引
+                var index = rounddown(0,36);
+                //根据索引获取数组的元素
+                var char = arr[index];
+                //将元素添加到验证码字符串中
+                code = code + char;
+            }
+            codeDiv.innerHTML = code;//将验证码显示到指定的标签中
+            console.log(code);
+        }
+        //第四步：设置验证码按钮点击事件,进行按钮校验
+        validateCode.onclick = function(){
+            //获取用户新输入的验证码，并转为大写
+            var newCodes = newCode.value.toUpperCase();
+            console.log(newCodes);
+            //判断用户输入的验证码是否正确
+            if(newCodes == code){
+                //验证码正确,跳转到相应的页面
+                window.location.href = "http://www.baidu.com";
+                }else{
+                //验证码错误,提示用户
+                alert("验证码错误,请重新输入验证码");
+                newCode.value = "";//清空输入框内容
+                randomCode();//重新生成验证码
+                }
+        }
+        }
+    </script>
+</body>
+</html>

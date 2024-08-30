@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 使用滚动方法 </title>
+</head>
+<body style="height: 2000px;">
+    <button id="toTop" style="position: fixed;">回到顶部</button>
+    <script>
+        var toTop = document.getElementById("toTop");
+        toTop.onclick = function(){
+            window.scrollTo(0,100);//设置滚动条的位置为100px
+        }
+    </script>
+
+</body>
+</html>

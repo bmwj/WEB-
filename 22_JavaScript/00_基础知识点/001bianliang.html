@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量</title>
+</head>
+<body>
+    <script>
+        //定义变量初始化
+        var x = 22;
+        var y = 44;
+        var name = "白玛旺久";
+        /*
+        1.必须使用字母、下划线(_)$开始
+        2.多个英文字母驼峰 myName
+        3.不能使用js中的关键字和保留字来进行命名
+        4.严格区别大小写
+        */
+       var _A = "西藏大学";
+       var $ = 99;
+    //    alert(_A);
+    //    alert($);
+    //    alert(name);
+
+    //    变量的重新赋值
+    var X = 2323;
+    X = 4444;
+    // alert(X);
+    // typeof来检查当前变量的数据类型
+    var a = 3>5;
+    alert(typeof name); //string
+    alert(typeof _A); //string
+    alert(typeof X); //number
+    alert(typeof a); //boolean：真true(1), 假false(0)
+    // 声明变量
+    var adad;
+    alert(adad) //undefined(当一个变量未声明结果就是undefined)
+    alert( typeof adad) ;//undefined
+    var sdsd =null;
+    alert(sdsd);//null：(空对象)
+    alert(typeof sdsd); //object
+    </script>
+
+
+</body>
+</html>

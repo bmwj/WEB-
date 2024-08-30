@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 检测当前浏览器上的插件
+        function detectPlugins() {
+            // navigator.plugins是一个数组，里面包含了当前浏览器上所有插件的信息
+            var plugins = navigator.plugins;
+            // 遍历数组，打印插件的名称和版本号
+            for (var i = 0; i < plugins.length; i++) {
+                // 获取当前插件的信息
+                var plugin = plugins[i];
+                // 打印插件的名称和版本号
+                return plugin.name + " " + plugin.version;
+            }
+        }
+        // console.log(detectPlugins());
+
+        function detectPluginss(name){
+            name = name.toLowerCase();//转换成小写
+            // navigator.plugins是一个数组，里面包含了当前浏览器上所有插件的信息
+            var plugins = navigator.plugins;
+            // 遍历数组，打印插件的名称和版本号
+            for (var i = 0; i < plugins.length; i++) {
+                var plugin = plugins[i];//获取当前插件的信息
+                console.log(plugin.name);//打印插件的信息
+                if(plugin.name.toLowerCase().indexOf(name)>-1){//判断插件名称是否包含name
+                    return "有此插件！"
+                }else{
+                    return "没有此插件！"
+                }
+            }
+        }
+        alert(detectPluginss("PDF Viewer"));
+    </script>
+</body>
+</html>

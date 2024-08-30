@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+</head>
+<body>
+    <script>
+        // js提供构造函数
+        var colors = new Array();
+        var colors1 = [];
+        alert(typeof colors); // object
+        alert(typeof colors1);// object
+
+        if(Array.isArray(colors)){
+            colors[0]="白玛旺久";
+            colors[1]="西藏大学";
+            colors[2]="布达拉宫";
+
+            console.log(colors); //['白玛旺久', '西藏大学', '布达拉宫']
+            console.log(colors.length); // 3
+            console.log(typeof colors); // object
+            
+        }else{
+            alert("对象不是数组!!!")
+        }
+    </script>
+</body>
+</html>

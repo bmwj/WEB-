@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollHeight和scrollWidth</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            /* 设置滚动条 */
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+        <p>白玛旺久</p>
+    </div>
+    <button id="btn">滚动</button>
+    <script>
+        var box = document.getElementById("box");
+        var btn = document.getElementById("btn");
+       //1. scrollTop 元素被卷起的高度
+       console.log(box.scrollTop); 
+       box.onscroll = function() {
+           console.log(box.scrollTop,box.scrollHeight);
+           //当滚动条滚动到内容底部时，符合以下公式
+           //scrollTop + clientHeight = scrollHeight
+       }
+
+       // scrollTop元素是可读的
+       btn.onclick = function() {
+        box.scrollTop+=10; 
+       }
+</script>
+</body>
+</html>

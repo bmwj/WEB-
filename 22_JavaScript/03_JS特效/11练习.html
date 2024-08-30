@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            /* overflow: hidden; */
+            position: relative;
+        }
+        #wrap .item {
+            width: 248px;
+            height: auto;
+            font-size: 13px;
+        }
+        #wrap .item .title{
+            width:210px;
+            height: 30px;
+            line-height: 30px;
+            white-space: nowrap; /* 防止文本换行 */
+            overflow: hidden; /* 隐藏溢出的内容 */
+            text-overflow: ellipsis; /* 使用省略号表示被隐藏的文本 */
+            margin-bottom:10px ;
+        }
+        .imgContainer{
+            width: 210px;
+            display: table-cell;
+            text-align: center;
+        }
+        .imgContainer img{
+            width: 200px;
+            height: 200px;
+        }
+        #wrap .item .price{
+            color: #ff6700;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="cols">
+        <button>3列</button>
+        <button>4列</button>
+        <button>5列</button>
+    </div>
+    <!-- 九宫格布局 -->
+    <div id="wrap">
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0002.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0003.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0002.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0003.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div> 
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div> 
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div> 
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="衣服相册/0001.jpeg" alt="">
+            </div>
+            <p class="title">纯色短袖女春季秋T恤韩国新款服装2024潮</p>
+            <p class="price">￥199</p>
+        </div>
+    </div>
+
+    <script>
+        //获取元素
+        var Btn = document.getElementsByTagName("button");
+        var items = document.getElementsByClassName("item");
+        Btn[0].onclick = function(){
+            Bm_flex(3);
+        }
+        Btn[1].onclick = function(){
+            Bm_flex(4);
+        }
+        Btn[2].onclick = function(){
+            Bm_flex(5);
+        }
+        function Bm_flex(ColsNum){
+            for(var i=0;i<items.length;i++){
+                // items[i].style.float = "left";
+                // console.log(items[i].offsetWidth);
+                // items[i].parentNode.style.width = items[i].offsetWidth*ColsNum + "px";
+                var row = parseInt(i/ColsNum);
+                var col = parseInt(i%ColsNum);
+                items[i].style.position = "absolute";
+                items[i].style.left = col*items[i].offsetWidth + "px";
+                items[i].style.top = row*items[i].offsetHeight + "px";
+            }
+        }
+    </script>
+</body>
+</html>

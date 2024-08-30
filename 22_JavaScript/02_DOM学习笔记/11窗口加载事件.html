@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>窗口加载事件</title>
+
+    <script>
+        /*
+        //通过延迟加载的方式来实现窗口加载事件
+        setTimeout(function(){
+            var box = document.getElementById("box");
+            box.onclick = function(){
+                this.innerHTML = "西藏大学";
+            }
+        }, 0);
+        */
+        //等待文档元素加载完成后再执行onload事件
+        window.onload = function(){
+            var box = document.getElementById("box");
+            box.onclick = function(){
+                this.innerHTML = "西藏大学";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">白玛旺久</div>
+</body>
+</html>

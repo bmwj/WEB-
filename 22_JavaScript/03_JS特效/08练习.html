@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效</title>
+    <script>
+        // jpge, jpg, png, gif
+        window.onload = function() {
+            // 获取标签
+            var file = document.getElementById("file");
+            // 监听图片选择的变化
+            file.onchange = function() {
+            // 2.1获取选择的图片路径
+            var path = this.value;
+            // 2.2 获取.在路径字符串中占的位置
+            var pos = path.lastIndexOf(".");
+            // 2.3 获取后缀名
+            var ext = path.substring(pos);
+            console.log(ext);
+            // 2.4 统一转为小写
+            ext = ext.toLowerCase();
+            console.log(ext);
+            // 2.5 判断后缀名是否符合要求
+            if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".gif") {
+                // 符合要求，可以继续上传
+                alert("图片格式正确");
+            }else {
+                // 不符合要求，禁止上传
+                alert("图片格式不正确");
+                this.value = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="file">上传图片格式验证：</label>
+    <input type="file" id="file" name="">
+</body>
+</html>

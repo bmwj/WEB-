@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效练习</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #boxs{
+            width: 450px;
+            height: 70px;
+            padding-top: 430px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            background: url("衣服相册/0001.jpeg") no-repeat ;
+            background-size: 440px 420px;
+            background-position: center top;
+        }
+        #boxs ul li{
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #boxs ul li img{
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    封装图片切换效果
+    -->
+    <div id="boxs">
+        <ul>
+            <li class="item">
+                <img src="./衣服相册/s_0001.png" alt="">
+            </li>
+            <li class="item">
+                <img src="./衣服相册/s_0002.png" alt="" >
+            </li>
+            <li class="item">
+                <img src="./衣服相册/s_0003.png" alt="" >
+            </li>
+            <li class="item">
+                <img src="./衣服相册/s_0004.png" alt="" >
+            </li>
+            <li class="item">
+                <img src="./衣服相册/s_0005.png" alt="">
+            </li>
+            <li class="item">
+                <img src="./衣服相册/s_0006.png" alt="">
+            </li>
+         </ul>
+    </div>
+   <script>
+    /*
+        var item1 = document.getElementById("item1");
+        var item2 = document.getElementById("item2");
+        var item3 = document.getElementById("item3");
+        var item4 = document.getElementById("item4");
+        var item5 = document.getElementById("item5");
+        var item6 = document.getElementById("item6");
+        var oBoxs = document.getElementById("boxs");
+      
+       //1.获取事件源
+       function idUrl(id){
+        return typeof id === "string"?document.getElementById(id):null;
+       }
+       console.log(idUrl("item2"));//返回的是对象
+
+       function changeBg(liId,imgUrl){
+            var oBoxs = idUrl("boxs");
+        //2. 添加事件处理函数
+            idUrl(liId).onmouseover = function(){
+                //3. 修改背景图片
+                oBoxs.style.background = imgUrl + " no-repeat";
+                oBoxs.style.backgroundSize = '440px 420px';
+                oBoxs.style.backgroundPosition = 'center top';
+            }
+        }
+        changeBg("item1","url('衣服相册/0001.jpeg')");
+        changeBg("item2","url('衣服相册/0002.jpeg')");
+        changeBg("item3","url('衣服相册/0003.jpeg')");
+        changeBg("item4","url('衣服相册/0004.jpeg')");
+        changeBg("item5","url('衣服相册/0005.jpeg')");
+        changeBg("item6","url('衣服相册/0006.jpeg')");
+        item1.onmouseover = function(){
+            oBoxs.style.background = 'url("衣服相册/0001.jpeg") no-repeat';
+            oBoxs.style.backgroundSize = '440px 420px';
+            oBoxs.style.backgroundPosition = 'center top';
+        }
+        item2.onmouseover = function(){
+            oBoxs.style.background = 'url("衣服相册/0002.jpeg") no-repeat';
+            oBoxs.style.backgroundSize = '440px 420px';
+            oBoxs.style.backgroundPosition = 'center top';
+        }
+        item3.onmouseover = function(){
+            oBoxs.style.background = 'url("衣服相册/0003.jpeg") no-repeat';
+            oBoxs.style.backgroundSize = '440px 420px';
+            oBoxs.style.backgroundPosition = 'center top';
+        }
+        item4.onmouseover = function(){
+            oBoxs.style.background = 'url("衣服相册/0004.jpeg") no-repeat';
+            oBoxs.style.backgroundSize = '440px 420px';
+            oBoxs.style.backgroundPosition = 'center top';
+        }
+        item5.onmouseover = function(){
+            oBoxs.style.background = 'url("衣服相册/0005.jpeg") no-repeat';
+            oBoxs.style.backgroundSize = '440px 420px';
+            oBoxs.style.backgroundPosition = 'center top';
+        }
+        item6.onmouseover = function(){
+            oBoxs.style.background = 'url("衣服相册/0006.jpeg") no-repeat';
+            oBoxs.style.backgroundSize = '440px 420px';
+            oBoxs.style.backgroundPosition = 'center top';
+        }
+            */
+        
+        //最终版本
+        //1.获取事件源
+        function idUrl(id){
+            return typeof id === "string"?document.getElementById(id):null;
+        }
+        //获取同类元素
+        var items = document.getElementsByClassName("item");
+        //循环遍历，绑定事件
+        for(var i=0;i<items.length;i++){
+            // 获取索引
+            var item = items[i];
+            // console.log(items[i]);
+            item.index = i+1;//索引值从1开始
+            console.log(item.index);//获取索引值
+            //2. 添加事件处理函数
+            items[i].onmouseover = function(){
+                console.log(this.index);//获取当前索引值
+                idUrl("boxs").style.background = "url('./衣服相册/000"+(this.index)+".jpeg') no-repeat";
+                idUrl("boxs").style.backgroundSize = "440px 420px";
+                idUrl("boxs").style.backgroundPosition = "center top";
+        }
+       }
+   </script>
+</body>
+</html>

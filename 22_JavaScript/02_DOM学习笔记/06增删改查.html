@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增删改查</title>
+</head>
+<style>
+    #box a{
+        color: red;
+        font-size: 30px;    
+    }
+    #link{
+        color: rgb(209, 72, 30);
+        font-size: 40px;
+    }
+</style>
+<body>
+    <!-- 
+    动态操作节点
+    1.创建节点 creatElement()
+    2.插入节点 appendChild() insertBefore()
+    3.删除节点 removeChild()
+    4.替换节点 replaceChild()
+    5.创建文本节点 createTextNode()
+    
+    
+    -->
+    <div id="boxs">
+        <p id="active">白玛旺久</p>
+    </div>
+    <script>
+        var oDiv = document.getElementById('boxs');
+        // 创建节点
+        var newNode = document.createElement('p');
+        var newNode2 = document.createElement('p');
+        var newNode3 = document.createElement('a');
+
+        // 设置属性
+        newNode.setAttribute('id', 'box');
+        newNode2.setAttribute('id', 'box');
+        newNode3.setAttribute('id', 'link');
+        // newNode.textContent = '西藏大学';// 设置文本内容
+        // 插入节点的位置
+        oDiv.appendChild(newNode);
+        //第一个参数是新节点，第二个参数是插入的位置的参考节点
+        oDiv.insertBefore(newNode, oDiv.firstChild);// 插入到第一个节点之前
+        oDiv.insertBefore(newNode2, oDiv.lastChild);// 插入到第一个节点之后
+        oDiv.appendChild(newNode3);
+        //创建文本节点
+        var textNode = document.createTextNode("你好，世界！")
+        // 插入文本节点
+        newNode.appendChild(textNode);
+        //innerHTML()来设置节点内容
+        newNode.innerHTML = "<a href='https://www.baidu.com'>你好，百度！</a>";// 设置innerHTML内容
+        newNode2.innerHTML = "<a href='#'>bmwj@gmail.com！</a>";
+        newNode3.setAttribute('href', 'https://www.google.com'); 
+        newNode3.innerHTML = "谷歌";
+    
+        // 删除节点
+        oDiv.removeChild(newNode);
+
+        // 第一个参数是要删除的节点，第二个参数是其父节点
+        // var parentNode = document.getElementById('boxs');
+        // parentNode.removeChild(newNode2);
+
+        // 第一个参数是要替换的节点，第二个参数是新节点，第三个参数是其父节点
+        var parentNode = document.getElementById('boxs');
+        parentNode.replaceChild(newNode3, newNode2);
+    </script>
+</body>
+</html>

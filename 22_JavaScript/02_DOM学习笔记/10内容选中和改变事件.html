@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- onselect 事件 onchange 事件 -->
+     <textarea cols="30",rows="10">请填写个人简介，字数不少于200字！</textarea>
+     <input type="text" value="白玛旺久">
+
+     <script>
+         var textArea = document.getElementsByTagName("textarea")[0];
+         var inputA = document.getElementsByTagName("input")[0];
+         textArea.onselect = function(){//选中文本框内容
+            console.log("选中了文本框内容");
+         }
+         inputA.onchange = function(){//输入框内容改变
+            console.log("输入框内容改变了");
+         }
+         inputA.oninput = function(){//实时监测输入框内容
+            console.log("内容被实时改变");
+            console.log(this.value);
+         }
+     </script>
+</body>
+</html>

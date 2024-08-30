@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map方法</title>
+</head>
+<body>
+    <script>
+        //定义一个对象
+        var oldArray = [
+            {name: '小米', age: 25},
+            {name: '华为', age: 30},
+            {name: '苹果', age: 28},
+            {name: '三星', age: 35},
+            {name: '魅族', age: 23},
+            {name: 'vivo', age: 27},
+            {name: 'oppo', age: 22},
+            {name: '一加', age: 29},
+            {name: '红米', age: 24},
+            {name: '荣耀', age: 32}
+        ];
+        //遍历数组，将name和age分别存入两个数组
+        var newNames =[];
+        var newAges =[];
+        //遍历数组
+        for(var i=0;i<oldArray.length;i++){
+            newNames.push(oldArray[i].name);
+            newAges.push(oldArray[i].age);
+        }
+        //打印两个数组
+        console.log(newNames);
+        console.log(newAges);
+        //使用map方法遍历数组，将name和age分别存入两个数组
+        var newArrayNames = oldArray.map(function(item,index){
+            return item.name;
+        });
+        var newArrayAges = oldArray.map(function(item,index){
+            return item.age;
+        });
+        //打印两个数组
+        console.log(newArrayNames);
+        console.log(newArrayAges);
+    </script>
+</body>
+</html>

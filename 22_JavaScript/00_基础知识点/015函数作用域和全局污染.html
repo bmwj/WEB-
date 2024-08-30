@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数作用域</title>
+</head>
+<body>
+    <!--
+    <script>
+        var str =22;
+        function add(){
+            var str1 = 33; //只能在当前函数里起作用
+            console.log(str); //打印全局变量
+            console.log(str1);//打印局部变量
+        }
+        add();
+        console.log(str); //打印全局变量
+    </script>
+    -->
+    <script src="./test/firs.js"></script>
+    <script src="./test/secend.js"></script>
+    <script>
+       first();
+       secend();
+    </script>
+</body>
+</html>

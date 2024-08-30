@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点对象的其他常用属性</title>
+</head>
+<body>
+    <div class="previous">我是上个兄弟</div>
+    <div id="father"><p>我是爸爸</p><p>我是儿子</p></div>
+    <div class="next">我是下个兄弟</div>
+    <script>
+        var oFather = document.getElementById("father");
+        console.log(oFather.childNodes);// 输出所有子节点对象
+        console.log(oFather.childNodes[0]);// 输出第一个子节点对象
+        console.log(oFather.childNodes[1]);// 输出第二个子节点对象
+        console.log(oFather.children);// 输出所有子元素节点对象
+        console.log(oFather.children[0]);// 输出第一个子元素节点对象
+        console.log(oFather.parentNode); // 输出父节点对象
+        console.log(oFather.firstChild); // 输出第一个子节点对象
+        console.log(oFather.lastChild); // 输出最后一个子节点对象
+        console.log(oFather.nextSibling); // 输出下一个兄弟节点对象
+        console.log(oFather.previousSibling); // 输出上一个兄弟节点对象
+    </script>
+</body>
+</html>

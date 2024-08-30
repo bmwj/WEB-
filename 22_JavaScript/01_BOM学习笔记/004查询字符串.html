@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1、获得去掉？后的查询字符串 username=admin&password=123
+        function getQureyString() {
+            var queryStr = location.search.length>0?location.search.substring(1):"";
+            var items = queryStr.length>0?queryStr.split("&"):[];
+            console.log(items);
+            //2、遍历查询字符串数组，获取username和password的值
+            var item=null,name=null,value=null,args={};
+            for(var i=0;i<items.length;i++){
+                item = items[i].split("=");//分割成key=value的数组,如["username","admin"]
+                name = item[0];//获取key
+                value = item[1];//获取value
+                if(name.length){
+                    args[name]=value;//将key-value存入对象中,如{"username":"admin","password":"123"}
+                }
+            return args;
+            }
+        }
+        console.log(getQureyString());//输出{"username":"admin","password":"123"}   
+        console.log(getQureyString().username);//输出admin
+        console.log(getQureyString().password);//输出123
+
+    </script>
+</body>
+</html>

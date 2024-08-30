@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>global对象</title>
+</head>
+<body>
+    <script>
+        //uri: 
+        var uri = "http://www.example.com/path/to/page.html";
+        //编码后的uri: 
+        var encodedUri = encodeURI(uri);
+        var encodedUri = encodeURIComponent(uri);
+        //解码后的uri: 
+        var decodedUri = decodeURI(encodedUri);
+        var decodedUri = decodeURIComponent(encodedUri);
+        //打印结果: 
+        console.log(uri); // http://www.example.com/path/to/page.html
+        console.log(encodedUri); // http%3A%2F%2Fwww.example.com%2Fpath%2Fto%2Fpage.html
+        console.log(decodedUri); // http://www.example.com/path/to/page.html
+        
+    </script>
+</body>
+</html>

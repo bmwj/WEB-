@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器兼容性</title>
+</head>
+<body>
+    <div class="previous">我是上个兄弟</div>
+    <div id="father">
+        <p>我是爸爸</p>
+        <p>我是儿子</p>
+    </div>
+    <div class="next">我是下个兄弟</div>
+    <script>
+        //获取元素节点
+        var oFather = document.getElementById("father");
+
+        //浏览器兼容性
+        function get_childNodes(fatherNodes){//获取子节点
+            var nodes = fatherNodes.childNodes;//获取所有子节点
+            var childNodes = [];//定义一个空数组
+            for(var i=0;i<nodes.length;i++){//遍历所有子节点
+                if(nodes[i].nodeType == 1){//判断节点类型是否为元素节点
+                    childNodes.push(nodes[i]);//将元素节点添加到数组中
+                }
+            }
+            return childNodes;//返回子节点数组
+        }
+        console.log(get_childNodes(oFather)[1].innerHTML);//输出：我是儿子
+
+        function get_nextSibling(node){//获取下一个兄弟节点
+            var x = node.nextSibling;//获取下一个兄弟节点
+            while(x && x.nodeType != 1){//判断下一个兄弟节点是否为元素节点
+                x = x.nextSibling;  //如果不是元素节点，则继续获取下一个兄弟节点
+            }
+            return x;//返回下一个兄弟节点
+        }
+        console.log(get_nextSibling(oFather).innerHTML);//输出：我是下个兄弟
+    </script>
+</body>
+</html>

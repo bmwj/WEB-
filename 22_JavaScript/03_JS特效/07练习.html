@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效练习</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #prompt{
+            color: darkgray;
+            font-size: 14px;
+        }
+        #score{
+            border: 1px solid darkgray;
+        }
+        .right{
+            background: url(image/right.png) no-repeat 5px center;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: lightgreen !important;
+        }
+        .error{
+            background: url(image/error.png) no-repeat 5px center;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: red !important;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <!-- 表单验证 -->
+     <div id="box">
+        <label for="score">您的成绩：</label>
+        <input type="text" placeholder="请输入您的成绩" id="score">
+        <span id="prompt">请输入您的成绩</span>
+     </div>
+     <script>
+        //1.获取事件源
+        function idUrl(id){
+            return typeof id === "string"?document.getElementById(id):null;
+        }
+        //input框失去焦点事件
+        idUrl("score").onblur = function(){
+            //2.获取输入框的值
+            var value = parseFloat(idUrl("score").value);
+            console.log(typeof value);
+            //3.判断验证
+            console.log(isNaN(value));
+            if(isNaN(value)){//返回true表示输入框输入的是非数字
+                //提示错误信息
+                idUrl("prompt").innerHTML = "输入的成绩不正确！！！";
+                // idUrl("prompt").className = "error";
+                idUrl("prompt").setAttribute("class","error");
+                this.style.borderColor = "red";
+            }else if(value>= 0 && value<= 100){
+                //判断输入的成绩是否在0-100之间
+                idUrl("prompt").innerHTML = "输入的成绩正确！！！";
+                idUrl("prompt").setAttribute("class","right");
+                this.style.borderColor = "lightgreen";
+            }else{
+                idUrl("prompt").innerHTML = "成绩必须在0-100之间！！！";
+                idUrl("prompt").setAttribute("class","error");
+                this.style.borderColor = "red";
+            }
+        }
+        // 2.input输入框获取焦点，回复原来的状态
+        idUrl("score").onfocus = function(){
+            idUrl("prompt").innerHTML = "请输入您的成绩";
+            idUrl("prompt").setAttribute("class","");
+            idUrl("prompt").style.borderColor = "darkgray";
+            idUrl("prompt").style.outline = "none";
+            idUrl("prompt").value='';
+        }
+     </script>
+</body>
+</html>

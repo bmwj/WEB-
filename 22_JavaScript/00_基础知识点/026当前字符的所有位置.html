@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当前字符的所有位置</title>
+</head>
+<body>
+    <script>
+        var str = "hello world hello worldhello world hello world hello worldhello world";
+        //字符e的第一个位置
+        var index = str.indexOf("e");
+        console.log(index); //输出1
+        //字符e的所有位置
+        var indexArr = [];
+        while(index != -1){
+            //将位置添加到数组中
+            indexArr.push(index);
+            //从下一个位置开始查找
+            index = str.indexOf("e", index+1);
+        }
+        console.log(indexArr); //输出[1, 13, 25, 37, 49]
+    </script>
+</body>
+</html>

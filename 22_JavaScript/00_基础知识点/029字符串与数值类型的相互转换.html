@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串与数值类型的相互转换</title>
+</head>
+<body>
+    <script>
+        //字符串转数值类型
+        var str1 = "112232.4214";
+        console.log(parseInt(str1)); // 112232
+        console.log(parseFloat(str1)); // 112232.4214
+        console.log(parseInt("123.456")); // 123
+        console.log(typeof parseInt(str1)); // number
+        console.log(typeof parseFloat(str1)); // number
+        var str2 = "123456.dsf232";
+        var a = Number(str2);
+        console.log(isNaN(a)); // 如果是NaN，则返回true，否则返回false
+        console.log(typeof a); // number
+
+        // 数值类型转字符串类型
+        var num1 = 123456;
+        //强制类型转换
+        console.log(num1.toString()); // "123456"
+        console.log(num1.toString(2)); // "11111010"，二进制
+        console.log(num1.toString(8)); // "20222"，八进制
+        console.log(num1.toString(16)); // "3f9"，十六进制
+        console.log(typeof num1.toString()); // string
+        console.log(String(num1)); // "123456"，等同于num1.toString()   
+
+        //隐式类型转换
+        var num2 = 123.456;
+        console.log(num2 + ""); // "123.456"，等同于num2.toString()
+        console.log("".concat(num2)); // "123.456"，等同于num2.toString()
+        console.log(num2.toFixed(2)); // "123.46"，四舍五入
+    </script>
+</body>
+</html>

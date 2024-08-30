@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //实现1+2+3+.......+100000
+        // var i;
+        // var sum = 0;
+        // for(i=1;i<=100000;i++){
+        //     sum=sum+i
+        //     // document.write(i);
+        // }
+        // alert(sum);
+
+        // 数组遍历
+        var arr1=[
+            "西瓜",
+            "香蕉",
+            "牛奶",
+            "苹果",
+            "红牛",
+            "电脑",
+            "手机",
+            "玩具"
+        ];
+        var str2;
+        for(str2=0;str2<arr1.length;str2++){
+            var htmlStr = "<h1>"+arr1[str2]+"</h1>";
+            document.write(htmlStr);//显示在页面
+            console.log(arr1[str2]);//显示在控制台
+
+        }
+    </script>
+</body>
+</html>

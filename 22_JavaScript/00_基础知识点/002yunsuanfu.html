@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+</head>
+<body>
+    <script>
+        // 算数运算符
+       var x = 10;
+       var y = 2;
+       var sum = x+y;
+       var en = x-y;
+       var or = x*y;
+       var op = x%y; 
+    // 引入表达式
+       var ss = 3+5-x*y;
+       var dd = x + sum/4 -2;
+    //    alert(dd)
+
+
+    // 递增与递减以及赋值运算符
+      var ff = 44;
+      ff+=4; //递增
+      ff-=3; // 递减
+      ff*=2; //ff*2=ff
+      ff/=5;
+    //   alert(ff)
+
+
+    // 字符串
+    var str = "！@#￥%&*（）——+";
+    var str1 ='白玛旺久';
+    var str2 = "Hello"+' '+'白玛旺久'; //字符串的拼接
+    var str3 = str+str2;
+    var str4 = ' I\'m BMWJ'
+    // alert(str4)
+
+    // 数字和字符串
+    var dfd = "白玛旺久"+11222;
+    // alert(dfd);
+    // alert(typeof dfd) //string数据类型
+    var dfs = "33"+"44";
+    // alert(dfs)
+    // 1.隐士转换数值转字符串
+    var sss = 23456;
+    var myStr = sss+" ";
+    // alert(typeof myStr) //string
+    // 2.toString方法数值转字符串
+     var str55=sss.toString();
+    // alert(typeof str55) ////string
+    //Number方法来字符串转数值
+    var myName = Number(sss);
+    // alert(typeof myName) //number
+    var nnn= "2323dfdfdf";
+    var neaS = Number(nnn);
+    alert(neaS);//NaN-(Not a Number)
+    alert(typeof neaS);//number
+    </script>
+</body>
+</html>

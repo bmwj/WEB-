@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 选择第一个标签 */
+    /* li:first-child{
+      background-color: blueviolet;
+    } */
+    /* 最后一个标签 */
+    /* li:last-child{
+      background-color: blue;
+    } */
+    /* 选择任意一个标签 */
+    /* li:nth-child(4){
+      background-color: chartreuse;
+    } */
+    /* :nth-child(公式) */
+    /* 
+    功能            公式
+    偶数标签         2n
+    奇数标签         2n+1；2n-1
+    找5的倍数标签    5n
+    找5以后的标签    n+5
+    找5以前的标签    -n+5
+    */
+    /* li:nth-child(2n){
+      background-color: blueviolet;
+    } */
+     div{
+      width: 300px;
+      height: 300px;
+      background-color: antiquewhite;
+     }
+     /* 伪元素选择器 */
+     /* 必须设置content属性，否则其他设置无效 */
+     div::before{
+      content: "白玛旺久";
+     }
+     div::after{
+      content: "索朗央金";
+     }
+  </style>
+</head>
+<body>
+  <!-- <ul>
+    <li>li1</li>
+    <li>li2</li>
+    <li>li3</li>
+    <li>li4</li>
+    <li>li5</li>
+    <li>li6</li>
+    <li>li7</li>
+    <li>li8</li>
+  </ul> -->
+  <div>爱</div>
+</body>
+</html>

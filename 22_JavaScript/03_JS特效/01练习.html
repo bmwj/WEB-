@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效</title>
+    <style>
+        img{
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    实现图片的显示和隐藏的功能
+    
+    -->
+    <button id="btn">隐藏</button><br>
+    <img src="./image/003.jpeg" alt="" id="imgs">
+ 
+
+    <script>
+        //获取事件源
+        var btns = document.getElementById("btn");
+        var images = document.getElementsByTagName("img")[0];
+        //绑定事件
+        btns.onclick = function(){
+            //事件驱动程序
+            if(btns.innerHTML === "隐藏"){
+                images.style.display = "none";
+                btns.innerHTML = "显示";
+            }else{
+                images.style.display = "block";
+                btns.innerHTML = "隐藏";
+            }
+        }
+
+    </script>
+</body>
+</html>

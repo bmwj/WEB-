@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串</title>
+</head>
+<body>
+    <script>
+        // 创建数组
+        var shopping = ['香蕉','榴莲','苹果','西瓜','哈密瓜'];
+        alert(shopping);
+        alert(typeof shopping); //object
+        // console.log(shopping); //打印控制台
+
+        var arr = ['白玛旺久','19980916',[111,222,333,'你好啊']];
+        console.log(arr);
+        console.log("数组类型为："+typeof arr); //object
+
+       //访问数组
+       var item1 = arr[0];
+       var item2 = arr[2][3];
+       console.log(item1);
+       console.log(item2);
+    //  修改元素
+      arr[0]="扎西德勒";
+      console.log(arr)
+    // 数组长度
+    console.log("数组长度为:"+shopping.length)
+    </script>
+</body>
+</html>

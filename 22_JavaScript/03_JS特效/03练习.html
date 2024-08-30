@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS特效练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #qe_code{
+            width: 180px;
+            height: 180px;
+            /* background-color: blue; */
+            line-height: 30px;
+            margin: auto;
+            position: relative;
+        }
+        #qe_code img{
+            width: 180px;
+            height: 160px;
+            position: absolute;
+        }
+        #close{
+            display: inline;            
+            border: 2px solid rgb(236, 230, 230);
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="qe_code">
+        <span id="close">X</span>
+        <img src="./衣服相册/0001.jpeg" alt="" id="code">
+    </div>
+
+        
+    <script>
+        // 点击关闭按钮隐藏
+        var qeCode = document.getElementById("qe_code");
+        var closeBtn = document.getElementById("close");
+        closeBtn.onclick = function(){
+            qeCode.style.display = "none";
+        }
+    </script>
+</body>
+</html>
