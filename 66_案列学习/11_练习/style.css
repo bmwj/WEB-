@@ -103,8 +103,20 @@ input[type="text"],input[type="email"]{
 .btn:hover{
     background-color: #065c9e;
 }
+
+/* 
+1.媒体查询：
+@media screen and (max-width: 880px)：这是一个媒体查询，当屏幕宽度小于或等于880像素时，应用其中的样式。
+2.容器样式：
+.container：在媒体查询条件下，容器的样式被修改。
+grid-template-columns: 1fr;：将容器的列布局设置为单列（1fr表示1个分数单位，即占满整个可用宽度）。
+3.左侧部分样式：
+.left：在媒体查询条件下，左侧部分的样式被修改。
+height: 200px;：将左侧部分的高度设置为200像素。
+
+*/
 @media screen and (max-width: 880px){
-    .container{
+    .contact-box{
         grid-template-columns:  1fr;
     }
     .left{
