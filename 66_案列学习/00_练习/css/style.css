@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* 防止子元素影响父元素的宽度 */
+    box-sizing: border-box;
+}
+body{
+    /* font-family: "Roboto", sans-serif; */
+    font-family: "Noto Serif Tibetan", serif;
+    overflow: hidden;
+}
+.container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: 50% 30%;
+    /* 居中, 垂直居中, 文字居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+.content{
+    max-width: 1200px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+.content h1{
+    font-size: 55px;
+    margin-bottom: 0.8rem;
+    color: #ffbb00;
+    /* font-family: "Dancing Script", cursive; */
+    font-family: "Noto Serif Tibetan",cursive;
+   
+}
+.content p{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.btn{
+    padding: 0.75rem 1.25rem;
+    margin-top: .8rem;
+    font-size: 1.1rem;
+    font-weight: 550;
+    color: #fff44f;
+    background-color: #111;
+    text-decoration: none;
+    display: inline-block;
+    /* text-transform: uppercase;, 文字全部大写 */
+    text-transform: uppercase;
+    transition: .3s;
+}
