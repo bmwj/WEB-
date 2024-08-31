@@ -57,9 +57,11 @@ body{
     font-weight: 550;
     color: #fff44f;
     background-color: #111;
+    /* text-decoration: none;，取消超链接的下划线 */
     text-decoration: none;
     display: inline-block;
     /* text-transform: uppercase;, 文字全部大写 */
     text-transform: uppercase;
+    /* transition: .3s;， 过渡效果 */
     transition: .3s;
 }
