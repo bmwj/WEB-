@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Sevillana", cursive;
 }
 body{
     background-color: #333;
@@ -15,6 +15,9 @@ body{
     color: #fff;
     padding: 1rem;
     position: relative;
+}
+.header>h1{
+    font-family: "Noto Sans SC", system-ui;
 }
 .header:after{
     content: "";
@@ -106,7 +109,8 @@ body{
 .skill-title h3{
     color: #fff;
     margin: 0.5rem;
-    font-family: "Dancing Script", system-ui;
+    /* font-family: "Bungee Tint", sans-serif; */
+    font-family: "Abril Fatface", serif;
 }
 .skill-icon{
     width: 70px;
