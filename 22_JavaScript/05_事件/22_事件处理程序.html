@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理程序</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(12, 224, 224);
+            color: #333;
+        }
+        #box2 {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(224, 12, 224);
+            color: #333;
+        }
+        #box3 {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(224, 224, 12);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" onclick="test()"></div>
+    <div id="box2" onclick="this.innerHTML +=event.type"></div>
+    <div id="box3" value="BaiMaWangJiu" onclick="this.innerHTML +=value"></div>
+
+    <script>
+        // 事件处理程序
+        //1. HTML事件处理程序
+        //2. DOM0级事件处理程序
+        //3. DOM2级事件处理程序
+        //4. IE事件处理程序
+        //5. 跨浏览器事件处理程序
+        //6. 自定义事件处理程序
+        function test() {
+            document.getElementById("box").innerHTML +=1;
+        }
+       
+        
+    </script>
+</body>
+</html>
