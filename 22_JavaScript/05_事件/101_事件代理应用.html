@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件代理</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        ul li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-size: 18px;
+            background-color: rgb(10, 162, 223);
+            margin: 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            //给未来的元素绑定事件，使用事件代理
+            box.onmouseover=function(event){
+                event = event || window.event;
+                var target = event.target || event.srcElement;
+                target.style.backgroundColor = 'orange';
+            }
+            box.onmouseout=function(event){
+                event = event || window.event;
+                var target = event.target || event.srcElement;
+                target.style.backgroundColor = 'black';
+            }
+          
+            //模拟未来的事件添加对应的数据
+            setTimeout(function(){
+                var items = document.createElement('li');
+                items.innerHTML = '6';
+                box.appendChild(items);
+            },3000)
+            /*
+            //常规方法实现:不能触发未来添加的事件
+            // 获取标签
+            var lis = document.getElementsByTagName('li');
+            for(var i=0;i<lis.length;i++){
+                lis[i].onmouseover = function(){
+                    this.style.backgroundColor = 'orange';
+                }
+                lis[i].onmouseout = function(){
+                    this.style.backgroundColor = 'darkblue'
+                }
+            }
+            */
+        
+            
+        }
+    
+    </script>
+</body>
+</html>

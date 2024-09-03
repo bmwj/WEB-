@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM0级事件处理程序</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 100px;
+            background-color: rgb(8, 228, 103);
+            position: relative;
+            left: 50px;
+            top: 50px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box");
+        // 给box元素添加点击事件
+        //1.简单具有跨浏览器的优势
+        box.onclick = function(){
+            this.innerHTML = ("BMWJ");
+        }
+        // 删除事件处理程序
+        box.onclick = null;
+        //缺点：不能给同一个元素来绑定相同的事件处理程序，如果绑定了会出现覆盖现象
+        box.onclick = function(){
+            this.innerHTML = ("白玛旺久");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件绑定兼容写法</title>
+    <style>
+        button{
+            padding: 10px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">你过来啊白玛旺久！</button>
+
+    <script>
+        //DOM2级事件处理程序 addEventListener() IE8不支持，ie attachEvent()
+        //attachEvent() 内部的this指向window，我们要对this指向也做兼容
+        var btn = document.getElementById("btn");
+        // btn.addEventListener("click",fn,false)
+        // btn.attachIEvent("click", fn);
+        
+        addEvent(btn,"click",function(){
+            console.log(this.innerHTML);
+        })
+        //全部浏览器事件绑定兼容写法
+        function addEvent(element,type,handler){
+            if(element.addEventListener){
+                element.addEventListener(type,handler,false);
+            }else{
+                element.attachEvent("on"+type,function(){
+                    handler.call(element);
+                });
+            }
+        }
+/*
+        //this指向问题
+        console.log(this); //window
+        var obj = {
+            innerHTML: "你过来啊白玛旺久！",
+        }
+        function fn(){
+            console.log(this.innerHTML);
+        }
+        // fn();//undefined
+        // call()方法可以改变this指向问题
+        fn.call(obj); //你过来啊白玛旺久
+*/
+    </script>
+</body>
+</html>

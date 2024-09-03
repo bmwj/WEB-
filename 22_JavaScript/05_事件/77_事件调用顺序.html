@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件调用顺序</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 100px;
+            background-color: rgb(19, 136, 194);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" onclick="this.innerHTML +='html\n'"></div>
+    <script>
+        /*
+        总结：
+        1.相同点：过同时出现HTML和DOM0级事件，DOM0级会覆盖HTML事件
+        2.不同点：
+        2.1 chrome浏览器、safari浏览器、firefox浏览器以及IE11结果一致：DOM0级事件、DOM2级事件
+        2.2 IE9、10结果为：DOM0级、DOM2级、IE事件处理程序
+        2.3 IE8结果为：DOM0级、IE事件处理程序
+        */
+        var box = document.getElementById('box');
+        //DOM0级事件处理程序
+        box.onclick = function(){
+            this.innerHTML += 'DOM0级事件处理程序\n';
+        }
+        //DOM2级事件处理程序
+        if(box.addEventListener){
+            box.addEventListener('click', function(){
+                this.innerHTML += 'DOM2级事件处理程序\n';
+            })
+        }
+        //IE事件处理程序
+        if(box.attachEvent){
+            box.attachEvent('onclick', function(){
+                this.innerHTML += 'IE事件处理程序\n';
+            })
+        }
+        
+    </script>
+</body>
+</html>

@@ -28,11 +28,12 @@
 <body>
     <div id="box1" onclick="test()"></div>
     <div id="box2" onclick="this.innerHTML +=event.type"></div>
-    <div id="box3" value="BaiMaWangJiu" onclick="this.innerHTML +=value"></div>
+    <div id="box3" value="BaiMaWangJiu" onclick="this.innerHTML +=value;"></div>
 
     <script>
         // 事件处理程序
         //1. HTML事件处理程序
+            //缺点：html+js代码耦合度高，不利于维护
         //2. DOM0级事件处理程序
         //3. DOM2级事件处理程序
         //4. IE事件处理程序

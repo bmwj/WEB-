@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何获取事件对象</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 100px;
+            background-color: #0bc11e;
+            color: #333;
+            font-weight: bold;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:void(0);"></a>
+    <div id="box"></div>
+    <script>
+        /*
+        1. 如何获取事件对象
+        2. 事件目标
+        3. 事件代理
+        4. 事件冒泡
+        5. 事件流阶段 eventPhase
+        6. 取消事件默认行为
+        */
+
+        //兼容性
+        window.onload = function() {
+            var box = document.getElementById("box");
+            /*
+            box.onclick = function(event) {
+                //1. event对象是事件处理程序的第一个参数 ie8浏览器不兼容
+                // ie8浏览器得到的结果是undefined，其他浏览器[object Event]
+                console.log(event);//[object PointerEvent]
+                this.innerHTML = event;
+            }
+            */
+           //2.直接可以使用event对象
+           box.onclick = function() {
+               this.innerHTML = event; //[object PointerEvent]
+           }
+        }
+    </script>
+</body>
+</html>

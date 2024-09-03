@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM2级事件处理程序</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(0, 183, 255);
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        //DOM2级事件中处理定义程序
+        //布尔值默认为false是处于冒泡阶段，如果是true则处于捕获阶段
+        //addEventListener(事件名，处理程序的函数，布尔值)方法用于为元素添加事件处理程序
+        //removeEventListener(事件名，处理程序的函数，布尔值)方法用于移除元素的事件处理程序
+        var box = document.getElementById("box");
+        //ie8及以下版本不支持DOM2级事件处理程序
+        /*
+        setTimeout(function(){
+            box.addEventListener("click",function(){
+                this.style.backgroundColor = "red";
+                this.innerHTML = "我被点击了";
+                this.style.color = 'black';
+            },false);
+        },100)
+        //监听函数传参，可以用匿名函数包装一个监听函数
+        box.addEventListener("mouseover",function(){
+            test("白玛旺久");
+        },false)
+        function test(event){
+            box.innerHTML = event;
+            box.style.color = "red";
+        }
+            */
+        /*
+        无效的事件监听者
+        //添加事件监听者
+        box.addEventListener("mouseover",function(){
+            this.innerHTML = "白玛旺久";
+        },false)
+        //移除事件监听者
+        box.removeEventListener("mouseover",function(){
+            this.innerHTML = "白玛旺久";
+        },false)
+        */
+       //正确移除事件方式
+       function hander(){
+        this.style.backgroundColor = "red";
+        this.innerHTML = "我被点击了";
+        this.style.color = 'black';
+       }
+
+       box.addEventListener("click",hander,false);
+       box.removeEventListener("click",hander,false);
+    </script>
+</body>
+</html>

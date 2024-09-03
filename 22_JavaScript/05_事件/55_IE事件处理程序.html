@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE事件处理程序</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(10, 198, 170);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    //IE: attachEvent() detachEvent()
+    var box =document.getElementById("box");
+    box.attachEvent("onclick", function(){
+        // alert("你点击了我！");
+        // this.innerHTML = "你点击了我！";,this指的是windows对象
+        box.innerHTML = "你点击了我！";
+    });
+
+    //移除事件处理程序
+    function hander(){
+        box.innerHTML = "你点击了我！";
+    }
+    box.attachEvent("onclick", hander);
+    box.detachEvent("onclick", hander);
+    </script>
+</body>
+</html>
