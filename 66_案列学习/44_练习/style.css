@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background-color: #e5e5fd;
+    min-height: 100vh;
+    border: 10px solid #1d1d4c;
+}
+.content{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.top_section{
+    margin-top: 100px;
+    /* display: flex;是为了让子元素水平居中  */
+    display: flex;
+    /* justify-content: space-between;是为了让子元素左右间隔相等 */
+    justify-content: space-between;
+    /* align-items: flex-end;是为了让子元素底部对齐 */
+    align-items: flex-end;
+}
+.top_section h1{
+    font-size: 50px;
+    font-weight: bold;
+    color: #1d1d4c;
+    /* text-transform: uppercase;是为了让字母全部大写 */
+    text-transform: uppercase;
+}
+.top_section h4{
+    font-size: 30px;
+    text-align: end;
+}
+.top_section .image_container {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.image_container,img{
+    width: 300px;
+    height: 320px;
+}
+.middle_section{
+    margin-top: 50px;
+}
+.middle_section h2{
+    font-family: "Abril Fatface", sans-serif;
+    font-style: normal;
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.middle_section p{
+    font-family: "Dancing Script", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 30px;
+    /* letter-spacing: 1.2px;是为了让字母间隔更加紧凑 */
+    letter-spacing: 1.2px;
+    /* text-align: justify;是为了让段落两端对齐 */
+    text-align: justify;
+}
+.bottom_section{
+    margin: 50px 0;
+}
+.bottom_section h3{
+    font-family: "Abril Fatface", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.bottom_section ul{
+    margin-left: 50px;
+}
+.bottom_section li{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.footer{
+    margin: 100px 0;
+}
+.footer p{
+    font-size: 16px;
+    text-align:end;
+}
