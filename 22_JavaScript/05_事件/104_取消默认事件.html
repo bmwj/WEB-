@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消默认事件</title>
+</head>
+<body>
+    <a href="http://www.baidu.com" id="link1">百度</a>
+    <a href="javascript:void(0)" id="link2">白玛旺久</a>
+    <a href="javascript:;" id="link3">你好啊</a>
+    <!-- 
+    事件对象中有两个方法 可以阻止默认事件：
+    1.preventDefault() 取消默认事件，比如：a标签的href属性，form表单的submit事件。
+    2.returnValut false 取消默认事件，比如：onclick事件。
+    3.return false 取消默认事件，比如：onkeydown事件。
+    
+    -->
+    <script>
+        var link1 = document.getElementById("link1");
+        var link2 = document.getElementById("link2");
+        var link3 = document.getElementById("link3");
+        // 1.preventDefault() ie8以下不支持
+        link1.onclick = function(e){
+            e=e||window.event;
+            /*
+            //阻止冒泡
+            e.stopPropagation();
+            //取消默认事件
+            e.preventDefault();
+            //阻止默认事件 ff ie8以上不支持
+            e.returnValue=false;
+            */
+            //兼容写法
+            if(e.preventDefault){
+                e.preventDefault();
+            }else{
+                e.returnValue=false;
+            }
+            console.log("你点击了链接");
+        }
+    </script>
+</body>
+</html>

@@ -6,9 +6,110 @@
     <title>事件冒泡</title>
 </head>
 <body>
-    <button style="width: 200px; height: 50px; margin: 20px;background-color: antiquewhite;">按钮</button>
-    //bubbles cancelBubble stopPropagation() stopImmediatePropagation()
+    <button id="btn" style="width: 200px; height: 50px; margin: 20px;background-color: antiquewhite;">按钮</button>
+    <input type="text" id="test">
+    <!-- //bubbles cancelBubble stopPropagation() stopImmediatePropagation() -->
+    <!-- 
+    1:bubbles 属性返回一个布尔值，表示当前事件是否冒泡，只读
+    注意：大部分事件都会冒泡，只有一些特殊事件如 focus、blur 、scroll 等不会冒泡。
+    -->
+    <script>
+        var btn = document.getElementById("btn");
+        var test = document.getElementById("test");
+        btn.onclick = function(event){
+            event = event || window.event;
+            console.log(event.bubbles); //true
+        }
+        test.onfocus = function(event){
+            event = event || window.event;
+            console.log(event.bubbles); //false
+        }
 
+        //2. stopPropagation() 方法用于阻止事件冒泡，即当前元素上的事件处理函数不再处理该事件，
+        //但它不会阻止该事件的默认行为,ie8及以下不支持该方法
+        /*
+        btn.onclick = function(event){
+            event = event || window.event;
+            event.stopPropagation();
+            console.log("事件冒泡被阻止");
+        }
+        document.body.onclick = function(event){
+            event = event || window.event;
+            console.log("body上的事件处理函数");
+        }
+           
+        btn.addEventListener("click", function(event){
+            event = event || window.event;
+            event.stopPropagation();
+            this.innerHTML = "按钮被点击了";
+        }, false);
+        btn.addEventListener("click", function(event){
+            event = event || window.event;
+            event.stopPropagation();
+            this.style.backgroundColor = "red";
+        }, false);
+        document.body.onclick = function(event){
+            event = event || window.event;
+            console.log("body上的事件处理函数");
+        }
+
+         */
+        
+        /*
+        3. stopImmediatePropagation() 方法用于立即阻止事件冒泡，
+        即当前元素上的事件处理函数不再处理该事件，并且它也会阻止该事件的默认行为,
+        也可以同一事件的其他监听函数执行。ie8及以下不支持该方法
+        
+        btn.addEventListener("click", function(event){
+            event = event || window.event;
+            event.stopImmediatePropagation();
+            this.innerHTML = "按钮被点击了,白玛旺久";
+        }, false);
+        btn.addEventListener("click", function(event){
+            event = event || window.event;
+            this.style.backgroundColor = "red";
+        }, false);
+        document.body.onclick = function(event){
+            event = event || window.event;
+            console.log("body上的事件处理函数");
+        }
+            */
+
+        /*
+        4. cancelBubble 属性用于阻止事件冒泡，可读写，默认值为 false。
+        当设置为true，cancelBubble 属性会阻止事件冒泡。
+        
+        
+       btn.onclick = function(event){
+           event = event || window.event;
+           event.cancelBubble=true;//设置cancelBubble属性为true,阻止事件冒泡
+           console.log("事件冒泡被阻止");
+       }
+       document.body.onclick = function(event){
+            event = event || window.event;
+            console.log("body上的事件处理函数");
+        }
+            */
+
+        /*
+        兼容stopPropagation()、stopImmediatePropagation()，ie8及以下不支持。
+        event.cancelBubble = true; 全浏览器兼容支持，不是标准写法。
+        */
+       btn.onclick = function(e){
+            e=e||window.event;
+            if(e.stopPropagation){//非ie浏览器
+            e.stopPropagation();
+            }else{//ie浏览器
+            e.cancelBubble=true;
+            }
+            this.innerHTML = "按钮被点击了";
+            console.log("事件冒泡被阻止");
+       }
+       document.body.onclick = function(event){
+            event = event || window.event;
+            console.log("body上的事件处理函数");
+        }
+    </script>
 
 </body>
 </html>

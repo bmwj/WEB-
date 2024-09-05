@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件对象属性</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: #08cbe5;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        //坐标位置
+        //事件对象中提供了：clientX/Y、x/y、offsetX/Y、pageX/Y、screenX/Y属性
+        var box = document.getElementById("box");
+        box.onmousemove = function(e){
+            e=e||window.event;
+            //1:clientX/Y、x/y:相对于浏览器也有效区域的X轴和Y轴坐标的距离
+            // this.innerHTML = "clientX:"+e.clientX+"<br>clientY:"+e.clientY+"<br>x:"+e.x+"<br>y:"+e.y;
+            //2:offsetX/Y:相对于触发事件的元素的X轴和Y轴坐标的距离
+            // this.innerHTML = "<br>offsetX:"+e.offsetX+"<br>offsetY:"+e.offsetY;
+            //3:pageX/Y:相对于页面的X轴和Y轴坐标的距离
+            // this.innerHTML = "<br>pageX:"+e.pageX+"<br>pageY:"+e.pageY;
+            //4:screenX/Y:相对于显示屏幕的X轴和Y轴坐标的距离
+        this.innerHTML = "<br>screenX:"+e.screenX+"<br>screenY:"+e.screenY;
+        }
+
+    </script>
+</body>
+</html>
