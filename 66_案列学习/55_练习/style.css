@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ccc;
+    font-family: "Noto Sans SC", system-ui;
+}
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.apply_box{
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    margin: 50px auto;
+    box-shadow: 4px 3px 5px rgba(1,1,1,0.3);
+    border-radius: 10px;
+}
+.apply_box h1{
+    text-align: center;
+    font-weight: 700;
+    
+}
+.title_small{
+    /* 转大写字母 */
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+}
+.form_container{
+    margin-top: 20px;
+    /* display: grid;，表示将输入框放置在网格中 */
+    display: grid;
+    /* grid-template-columns属性用于设置网格的列数，这里设置为自动适应，最小宽度为200px，最大宽度为1fr */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* gap属性用于设置网格的间距，这里设置为20px */
+    gap: 20px;
+}
+.form_control{
+    /* display: flex;，表示将输入框放置在一行 */
+    display: flex;
+    /* flex-direction属性用于设置输入框的排列方式，这里设置为垂直排列 */
+    flex-direction: column;
+}
+label{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+input,select{
+    height: 32px;
+    padding-left: 4px;
+    line-height: 32px;
+}
+input,select,textarea{
+    padding: 6px,10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#resume{
+    width: 100%;
+}
+input:focus{
+    outline-color: red;
+}
+.button_container{
+    /* display: flex;，表示将按钮放置在一行 */
+    display: flex;
+    /* jusify-content属性用于设置按钮的排列方式，这里设置为居右 */
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+button{
+    background-color: red;
+    border: transparent solid 2px;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s ease-in;
+}
+button:hover{
+    background-color: #ccc;
+    border: 2px solid rgb(6, 144, 212);
+    color: black;
+    /* transion属性用于设置过渡效果，这里设置了按钮的背景色、边框颜色、字体颜色的过渡效果 */
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+.textarea_control{
+    /* grid-column: 1/span 2;，表示占据两列 */
+    grid-column: 1/span 2;
+}
+.textarea_control textarea{
+    width: 100%;
+}
+/* @media 方法用于响应式设计，当屏幕宽度小于460px时，将.textarea_control的grid-column属性设置为1/span 1，即只显示一个文本框 */
+@media(max-width: 460px){
+    .textarea_control{
+        grid-column: 1/span 1;
+    }
+    
+}

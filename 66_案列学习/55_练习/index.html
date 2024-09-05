@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee+Tint&family=Dancing+Script:wght@400..700&family=Lobster&family=New+Amsterdam&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Tibetan:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sevillana&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="apply_box">
+            <h1>
+                职位申请
+                <span class="title_small">(zhi wei shen qing)</span>
+            </h1>
+            <form action="">
+                <div class="form_container">
+                    <!-- 姓名 -->
+                    <div class="form_control">
+                        <label for="first_name">姓名</label>
+                        <input type="text" id="first_name" name="first_name" placeholder="请输入您的名字...">
+                    </div>
+                    <!-- 电话 -->
+                    <div class="form_control">
+                        <label for="numer_name">电话</label>
+                        <input type="text" id="numer_name" name="numer_name" placeholder="请输入您的电话号码...">
+                    </div>
+                    <!-- 邮箱 -->
+                    <div class="form_control">
+                        <label for="email">邮箱</label>
+                        <input type="text" id="email" name="email" placeholder="请输入您的邮箱...">
+                    </div>
+                    <!-- 职位职责 -->
+                     <div class="form_control">
+                        <label for="job_role">职位职责</label>
+                        <select name="job_role" id="job_role">
+                            <option value="全栈工程师">全栈工程师</option>
+                            <option value="web前端工程师">Web前端工程师</option>
+                            <option value="web后端工程师">Web后端工程师</option>
+                            <option value="web测试工程师">测试工程师</option>
+                            <option value="产品经理">产品经理</option>
+                            <option value="项目经理">项目经理</option>
+                            <option value="UI设计师">UI设计师</option>
+                        </select>
+                     </div>
+                     <!-- 地址 -->
+                     <div class="textarea_control">
+                        <label for="address">地址</label>
+                        <textarea name="address" id="address" placeholder="请输入您的地址..." rows="4" cols="50"></textarea>
+                     </div>
+                      <!-- 城市 -->
+                     <div class="form_control">
+                        <label for="city">城市</label>
+                        <input type="text" id="city" name="city" placeholder="请输入您的城市...">
+                     </div>
+                     <!-- 邮政编码 -->
+                      <div class="form_control">
+                        <label for="zip_code">邮政编码</label>
+                        <input type="text" id="zip_code" name="zip_code" placeholder="请输入您的邮政编码...">
+                      </div>
+                      <!-- 日期 -->
+                      <div class="form_control">
+                        <label for="date">日期</label>
+                        <input type="date" id="date" name="date" value="2024-01-01">
+                      </div>
+                      <!-- 期望薪资 -->
+                      <div class="form_control">
+                        <label for="salary">期望薪资</label>
+                        <input type="text" id="salary" name="salary" placeholder="请输入您的期望薪资...">
+                      </div>
+                      <!-- 简历 -->
+                      <div class="textarea_control">
+                        <label for="resume">上传您的简历</label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                      </div>
+                </div>
+                <!-- 提交按钮 -->
+                <div class="button_container">
+                    <button type="submit" id="submit_btn">提交申请</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var submit_btn = document.getElementById("submit_btn");
+        // 阻止默认提交事件
+        submit_btn.addEventListener("click", function(event){
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
