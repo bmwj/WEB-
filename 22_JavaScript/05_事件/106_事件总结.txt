@@ -1,0 +1,74 @@
+事件总结
+    1.事件流【表述的是从页面接受事件的顺序】
+        IE事件流是事件冒泡，而W3C的事件流是事件捕获。
+    2.事件流对象
+        （1）事件捕获阶段 （2）事件目标阶段 （3）事件冒泡阶段
+        事件捕获阶段：从最不具体的节点（windows/document）接受事件往具体的节点进行传播。
+        事件目标阶段：事件的目标元素被触发，执行事件处理程序。
+        事件冒泡阶段：从具体的节点往最不具体的节点进行传播。
+    3.事件对象
+        3.1 e.eventPhase 描述事件发生的阶段
+            事件捕获阶段 1
+            事件目标阶段 2
+            事件冒泡阶段 3
+        3.2 事件目标阶段
+            e.currentTarget === this
+            e.target 
+            e.srcElement
+            //兼容写法
+            var target = e.target || e.srcElement;
+        3.3 事件代理、事件委托
+        3.4 阻止事件的默认行为
+            e.preventDefault()
+            e.returnValue = false;
+            return false;
+        3.5 事件冒泡阶段
+            e.bubbles
+                blur、focus、scroll三个事件的返回值为false；
+            e.stopPropagation();//常用方法，阻止事件冒泡。
+            e.stopImmediatePropagation();//阻止事件捕获和冒泡。
+            e.cancelBubble = true;
+            //兼容写法
+            var handler = function(e){
+                e=e||window.event;
+                if(e.stopPropagation){
+                    e.stopPropagation();
+                }else{
+                    e.cancelBubble = true;
+                }
+            }
+    4.事件处理程序
+        （1）HTML事件处理程序
+        （2）DOM0级事件处理程序
+            btn.onclick = function(e){
+                e=e||window.event;
+            }
+            //有事件覆盖现象
+            btn.onclick = function(e){
+                e=e||window.event;
+            }
+        （3）DOM2级事件处理程序
+            btn.addEventListener('click',function(e){
+                e=e||window.event;
+            },false);
+            
+            var handler = function(e){
+                ......
+            }
+            btn.addEventListener('click',handler,false);
+            //移除事件监听器
+            btn.removeEventListener('click',handler,false);
+        （4）IE事件处理程序
+            btn.attachEvent('onclick',function(e){
+                e=e||window.event;
+                //在IE浏览器中this指向windows
+            });
+            btn.detachEvent('onclick',function(e){
+                e=e||window.event;
+            });
+            处理this指向问题，函数中的call(target)方法可以改变this指向。
+    5.事件对象中的属性 坐标位置
+        5.1 clientX/Y ,x/y【鼠标指针相对于浏览器窗口的位置---有效的浏览器区域】
+        5.2 pageX/Y 【鼠标指针相对于页面的位置，如果有滚动条，包括整个页面】
+        5.3 screenX/Y 【鼠标指针相对于屏幕的位置】
+        5.4 offsetX/Y 【鼠标指针相对于事件源元素的位置】

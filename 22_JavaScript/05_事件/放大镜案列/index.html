@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜案列</title>
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+<body>
+    <div id="box">
+        <div id="small_box">
+            <img src="./image/00000.webp" alt="">
+            <span id="mask">
+
+            </span>
+        </div>
+        <div id="big_box">
+            <img src="./image/111111.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            //1.获取元素
+            var box = document.getElementById("box");
+            var small_box = box.children[0];
+            var big_box = box.children[1];
+            var small_img = small_box.children[0];
+            var mask = small_box.children[1];
+            var big_img = big_box.children[0];
+
+            //2.设置鼠标移入事件
+            small_box.onmouseover = function() {
+                //2.1显示遮罩层和大盒子
+                mask.style.display = "block";
+                big_box.style.display = "block";
+                //2.2 监听鼠标移动事件
+                small_box.onmousemove = function(e) {
+                    e=e||window.event;
+                    //2.3 求出小盒子移动的水平和垂直距离
+                    var x = e.clientX - small_box.offsetLeft - box.offsetLeft-mask.offsetWidth*0.5;
+                    var y = e.clientY - small_box.offsetTop -box.offsetTop - mask.offsetHeight*0.5;
+                    //2.4 判断小盒子移动的距离是否超出范围
+                    if (x < 0) {
+                        x = 0;
+                    } else if (x > small_box.offsetWidth - mask.offsetWidth) {
+                        x = small_box.offsetWidth - mask.offsetWidth;
+                    }
+                    if (y < 0) {
+                        y = 0;
+                    } else if (y > small_box.offsetHeight - mask.offsetHeight) {
+                        y = small_box.offsetHeight - mask.offsetHeight;
+                    }
+                    //2.5 限制小盒子移动
+                    mask.style.left = x + "px";
+                    mask.style.top = y + "px";
+                    //2.6 大盒子移动
+                    //公式: X/大图移动距离？？=（small_box宽度-mask宽度）/（big_img宽度-big_box宽度）
+                    var x1 = x / (small_box.offsetWidth - mask.offsetWidth);
+                    var y1 = y / (big_img.offsetWidth - big_box.offsetWidth);
+                    big_img.style.left = -x1 * (big_img.offsetWidth - big_box.offsetWidth) + "px";
+                    big_img.style.top = -y1 * (big_img.offsetHeight - big_box.offsetHeight) + "px";
+                }
+            }
+            //3.设置鼠标移出事件
+            small_box.onmouseout = function() {
+                mask.style.display = "none";
+                big_box.style.display = "none";
+            }
+       
+        }
+    </script>
+</body>
+</html>

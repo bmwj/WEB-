@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝放大镜效果</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="box">
+        <div id="small_box">
+            <img src="./image/00000.webp" alt="小图">
+            <span id="mask"></span>
+        </div>
+        <div id="big_box">
+            <img id="big_img" src="./image/00000.webp" alt="大图">
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var box = document.getElementById("box");
+            var small_box = box.querySelector("#small_box");
+            var mask = document.getElementById("mask");
+            var big_box = document.getElementById("big_box");
+            var big_img = document.getElementById("big_img");
+
+            small_box.onmouseover = function() {
+                mask.style.display = "block";
+                big_box.style.display = "block";
+
+                small_box.onmousemove = function(e) {
+                    var rect = small_box.getBoundingClientRect();
+                    var x = e.clientX - rect.left - mask.offsetWidth / 2;
+                    var y = e.clientY - rect.top - mask.offsetHeight / 2;
+
+                    if (x < 0) x = 0;
+                    if (y < 0) y = 0;
+                    if (x > small_box.offsetWidth - mask.offsetWidth) x = small_box.offsetWidth - mask.offsetWidth;
+                    if (y > small_box.offsetHeight - mask.offsetHeight) y = small_box.offsetHeight - mask.offsetHeight;
+
+                    mask.style.left = x + "px";
+                    mask.style.top = y + "px";
+
+                    var xRatio = x / (small_box.offsetWidth - mask.offsetWidth);
+                    var yRatio = y / (small_box.offsetHeight - mask.offsetHeight);
+
+                    var maxMoveX = big_img.offsetWidth - big_box.offsetWidth;
+                    var maxMoveY = big_img.offsetHeight - big_box.offsetHeight;
+
+                    big_img.style.left = -xRatio * maxMoveX + "px";
+                    big_img.style.top = -yRatio * maxMoveY + "px";
+                }
+            }
+
+            small_box.onmouseout = function() {
+                mask.style.display = "none";
+                big_box.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
