@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧边栏效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            position: relative;
+            top: 0;
+            left: -200px;
+            cursor: pointer;
+        }
+        #box img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #box span{
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            right: -40px;
+            color: #fff;
+            background-color: black;
+            line-height:60px;
+            text-align: center;
+        }
+      
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./image/111111.jpg" alt="">
+        <span>拉开</span>
+    </div>
+    
+    <!-- 最简单的效果 
+     <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            var span = box.children[0];
+            box.onmouseover = function(){
+                this.style.left = 0+'px';
+            }
+            box.onmouseout = function(){
+                this.style.left = -200+'px';
+            }
+        }
+     </script>
+     -->
+
+     <!-- 
+     <script>
+        window.onload = function(){
+            //获取事件对象
+            var box = document.getElementById('box');
+            //定义一个变量，用来存储定时器
+            var items = null;
+            //鼠标移入时，开启定时器，每隔30毫秒移动5px
+            box.onmouseover = function(){
+                //清除定时器
+                clearInterval(items);
+                //开启定时器
+                items = setInterval(function(){
+                    //判断是否到达边缘
+                    if(box.offsetLeft === 0){
+                        clearInterval(items);
+                        return;
+                    }else{
+                        box.style.left = box.offsetLeft + 5 + 'px';
+                    }  
+                },30);
+            }
+            //鼠标移出时，关闭定时器，每隔30毫秒移动-5px
+            box.onmouseout = function(){
+                clearInterval(items);
+                items = setInterval(function(){
+                    if(box.offsetLeft === -200){
+                        clearInterval(items);
+                        return;
+                    }else{
+                        box.style.left = box.offsetLeft - 5 + 'px';
+                    }  
+                },30);
+            }
+        }
+     </script>
+      -->
+     <!-- 封装代码 -->
+      <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            var items = null,speed = 0;
+            box.onmouseover = function(){
+                move(this,0);
+            }
+            box.onmouseout = function(){
+                move(this,-200);
+            }
+            //封装的函数
+            function move(obj,end){
+                clearInterval(items);
+                speed = end>obj.offsetLeft? 5 : -5;
+                items = setInterval(function(){
+                    if(obj.offsetLeft === end){
+                        clearInterval(items);
+                        return;
+                    }else{
+                        obj.style.left = obj.offsetLeft+speed + 'px';
+                    }
+                },30)
+            }
+        }
+      </script>
+</body>
+</html>
