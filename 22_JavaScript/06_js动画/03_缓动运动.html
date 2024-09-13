@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            position: relative;
+            top: 0;
+            left: -200px;
+            cursor: pointer;
+        }
+        #box img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #box span{
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            right: -40px;
+            color: #fff;
+            background-color: black;
+            line-height:60px;
+            text-align: center;
+        }
+      
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./image/111111.jpg" alt="">
+        <span>拉开</span>
+    </div>
+    
+      <!-- <script>
+        //0~200px的缓动效果
+        //缓动动画公式：加速度=（终点值-起点值）/缓动系数 加速度由快到慢
+        window.onload = function(){
+           // 获取元素
+           var box = document.getElementById("box");
+           var items=null,end=0,end2=-200;
+           // 鼠标移入事件
+           box.onmouseover = function(){
+            clearInterval(items);
+            items = setInterval(function(){
+                // speed = (end - box.offsetLeft)/20;//结果left: -8.55px;
+                //Math.ceil()方法返回大于或等于该参数的最小整数
+                speed = Math.ceil((end - box.offsetLeft)/20);
+                if(box.offsetLeft===end){
+                    clearInterval(items);
+                    return;
+                }else{
+                    box.style.left = box.offsetLeft + speed + "px";
+                }
+            },30);
+           }
+           box.onmouseout = function(){
+            clearInterval(items);
+            items = setInterval(function(){
+                speed = Math.floor((end2 - box.offsetLeft)/20);
+                if(box.offsetLeft===end2){
+                    clearInterval(items);
+                    return;
+                }else{
+                    box.style.left = box.offsetLeft + speed + "px";
+                }
+           },30);
+        }
+        }
+      </script> -->
+
+      <!-- 封装函数 -->
+       <script>
+         window.onload = function(){
+            var box = document.getElementById("box");
+            var items = null;
+            // 鼠标移入事件
+            box.onmouseover = function () {
+                move(box, 0);
+            }
+
+            box.onmouseout = function () {
+                move(box, -200);
+            }
+
+            //定义函数
+            function move(obj, end) {
+                //清除定时器
+                clearInterval(items);
+                //设置定时器
+                items = setInterval(function () {
+                    //求出速度
+                    var speed = (end - obj.offsetLeft) / 20;
+                    //判断速度是否大于0，如果大于0，则取整，否则取负值
+                    speed =speed>0?Math.ceil(speed):Math.floor(speed);
+                    if (obj.offsetLeft === end) {
+                        clearInterval(items);
+                        return;
+                    } else {
+                        obj.style.left = obj.offsetLeft + speed + "px";
+                    }
+                },30);
+            }
+         }
+       </script>
+</body>
+</html>

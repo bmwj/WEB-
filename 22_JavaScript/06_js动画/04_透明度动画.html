@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>透明度动画</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            opacity: 0.3;
+            /* 支持ie8以下的浏览器 */
+            filter: alpha(opacity=30);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById("box");
+            var items=null,alpha=30,speed=0;
+            box.onmouseover = function() {
+                changeAlpha(this,100);
+            };
+            box.onmouseout = function() {
+                changeAlpha(this,30);
+            };
+            // 封装函数
+            function changeAlpha(obj,endAlpha) {
+                clearInterval(items);//清除定时器
+                items = setInterval(function() {//定时器
+                    //求透明度变化速度
+                    speed = endAlpha>alpha?10:-10;//速度为正则加速，反之减速
+                    //边界处理
+                    if(alpha == endAlpha) {//如果已经到达目标值，则清除定时器
+                        clearInterval(items);
+                        return;
+                    }
+                    //改变当前的alpha值
+                    alpha += speed;//根据速度改变透明度
+                    //修改值
+                    obj.style.opacity = alpha/100;//修改透明度
+                    //修改filter属性
+                    obj.style.filter = "alpha(opacity=" + alpha + ")";
+                },30);
+            }
+        }
+
+    </script>
+</body>
+</html>

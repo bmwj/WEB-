@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee+Tint&family=Comfortaa:wght@300..700&family=Dancing+Script:wght@400..700&family=Lobster&family=New+Amsterdam&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Tibetan:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sevillana&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Comfortaa', cursive;
+}
+body{
+    /* flex参数是用来设置父元素的布局方式 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.catainer{
+    display: flex;
+    width: 90vw;
+}
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    /* flex参数是用来设置子元素的布局方式。0.5表示子元素的宽度占父元素的50% */
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    /* transition参数是用来设置动画效果的。all表示所有属性都要变化，700ms表示动画持续时间，ease-in表示动画的速度曲线 */
+    transition: all 700ms ease-in;
+}
+.panel h1{
+    font-size: 35px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+.panel.active{
+    /* flex: 5;，表示子元素的宽度占父元素的50% */
+    flex: 5;
+}
+.panel.active h1{
+    opacity: 1;
+    transition: opactiy 0.3s ease-in 0.4s;
+}
+@media (max-width: 480px) {
+    .container{
+        width: 100vw;
+        transition: opactiy 0.3s ease-in 0.4s;
+    }
+    /* 隐藏第4、5个元素 */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
