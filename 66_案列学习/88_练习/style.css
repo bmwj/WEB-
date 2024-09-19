@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee+Tint&family=Comfortaa:wght@300..700&family=Dancing+Script:wght@400..700&family=Lobster&family=New+Amsterdam&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Tibetan:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sevillana&display=swap");
+:root {
+  /* 定义全局 CSS 变量 */
+  --primary: #ddd; /* 主色 */
+  --dark: #333; /* 深色 */
+  --light: #fff; /* 浅色 */
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8); /* 阴影效果 */
+}
+
+html {
+  /* 设置盒模型的计算方式和字体 */
+  box-sizing: border-box; /* 使用 border-box 的盒模型计算方式 */
+  font-family: Arial, Helvetica, sans-serif; /* 设置字体样式 */
+  color: var(--dark); /* 设置文本颜色为深色 */
+}
+
+body {
+  /* 设置页面主体的背景、边距和行高 */
+  background: #ccc; /* 背景色 */
+  margin: 30px 50px; /* 上下边距30px，左右边距50px */
+  line-height: 1.4; /* 行高 */
+  font-family: "Noto Sans SC", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.btn {
+  /* 设置按钮的样式 */
+  background: var(--dark); /* 按钮背景色为深色 */
+  color: var(--light); /* 按钮文本颜色为浅色 */
+  padding: 0.6rem 1.3rem; /* 内边距 */
+  text-decoration: none; /* 去掉默认的文本装饰 */
+  border: 0; /* 去掉默认边框 */
+}
+img {
+  max-width: 100%;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+.main-nav ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+}
+.main-nav a {
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  font-size: 26px;
+  box-shadow: var(--shadow);
+}
+.main-nav a:hover {
+  background: var(--dark);
+  color: var(--light);
+}
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b";
+}
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url(https://images.unsplash.com/photo-1726182916337-38dca644bc65?q=80&w=1074&auto=format&fit=crop&ixlib=rb-.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}
+.top-box {
+  background: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+.top-box .price {
+  font-size: 2.5rem;
+}
+.top-box-a {
+  grid-area: top-box-a;
+}
+.top-box-b {
+  grid-area: top-box-b;
+}
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.box {
+  background: var(--primary);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+.info {
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+.info div {
+  padding-left: 3rem;
+}
+.portfolio {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.portfolio img {
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+footer {
+  margin-top: 2rem;
+  background: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
+}
+/* Media Queries */
+@media (max-width: 700px) {
+    .top-container {
+      grid-template-areas:
+        'showcase showcase'
+        'top-box-a top-box-b';
+    }
+  
+    .showcase h1 {
+      font-size: 2.5rem;
+    }
+  
+    .main-nav ul {
+      grid-template-columns: 1fr;
+    }
+  
+    .info {
+      grid-template-columns: 1fr;
+    }
+  
+    .info .btn {
+      display: block;
+      text-align: center;
+      margin: auto;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .top-container {
+      grid-template-areas:
+        'showcase'
+        'top-box-a'
+        'top-box-b';
+    }
+  }
+  
