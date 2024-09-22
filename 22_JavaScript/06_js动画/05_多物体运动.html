@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多物体运动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .boxes {
+            width: 500px;
+            height: 300px;
+            background-color: aliceblue;
+            border: 2px solid black;
+            padding: 5px, 5px;
+        }
+        .boxes>div {
+            width: 200px;
+            height: 80px;
+            margin-top: 15px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <section class="boxes">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </section>
+
+    <script>
+        //wimdow.onload = function(){}，页面加载完成后执行
+        window.onload = function() {
+            //1.获取所有div
+            var allDivs = document.getElementsByTagName("div");
+            //2.给每一个div添加鼠标移入移出事件
+            for(var i = 0;i<allDivs.length;i++){
+                allDivs[i].onmouseover = function() {
+                    startAnimation(this,500);
+                }
+                allDivs[i].onmouseout = function() {
+                    startAnimation(this,200);
+                }
+            }
+            //3.定义动画函数
+            var speed = 0;
+            function startAnimation(obj,endTarget) {
+                clearInterval(obj.timer);//清除之前的定时器
+                //4.设置定时器
+                obj.timer = setInterval(function() {
+                    //1.求速度
+                    speed = (endTarget - obj.offsetWidth)/20;
+                    speed = endTarget > obj.offsetWidth ? Math.ceil(speed) : Math.floor(speed);
+                    //2.临界点处理
+                    if(obj.offsetWidth == endTarget){
+                        clearInterval(obj.timer);
+                        return;
+                    }
+                    //3.移动
+                    obj.style.width = obj.offsetWidth + speed + "px";
+                },10);
+            }
+        }
+    </script>
+</body>
+</html>

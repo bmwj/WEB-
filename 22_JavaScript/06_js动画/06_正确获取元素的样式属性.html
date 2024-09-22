@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正确获取元素的样式属性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById("box");
+            move(box);
+            function move(obj){
+                setInterval(function(){
+                    //下面的写法是错误的，不能正确获得元素的样式属性，并且width越来越大
+                    // obj.style.width=obj.offsetWidth-1+"px";
+                    obj.style.width=parseInt(getStyle(obj,"width"))-1+"px";
+                },100);
+            }
+
+            /**
+             * 获取元素的样式属性
+             * @param {Object} obj 要获取样式的元素
+             * @param {Object} attr 当前元素对象的属性
+             */
+            // 定义一个函数
+            function getStyle(obj,attr){
+                // 兼容不同浏览器的写法
+                if(obj.currentStyle){
+                    // 兼容IE
+                    return obj.currentStyle[attr];
+                }else{
+                    // 其他主流浏览器
+                    return getComputedStyle(obj,null)[attr];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
